@@ -10,10 +10,7 @@ def before_request_func():
     g.app = data.data
 
 
-@app.route('/')
-def home():
-    return redirect(url_for('dashboard'))
-
+ 
 
 @app.route('/login.html')
 def login():
@@ -34,9 +31,9 @@ def forgotpassword():
 def dashboard():
     return render_template("/dashboard.html")
 
-@app.route('/colleges.html')
-def colleges():
-    return render_template("/colleges.html")
+@app.route('/')
+def index():
+    return render_template("/index.html")
 
 
 if __name__ == '__main__':
