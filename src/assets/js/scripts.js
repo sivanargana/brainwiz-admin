@@ -21,6 +21,17 @@ const app = {
   },
   menu:()=>{
 
+ new Swiper('.menu-swiper', {
+    
+      slidesPerView: "auto",
+    
+      navigation: {
+        nextEl: '.menu-swiper-nav-next',
+        prevEl: '.menu-swiper-nav-prev',
+      },
+    
+    });
+
   },
   init: () => {
     app.sidebar();
