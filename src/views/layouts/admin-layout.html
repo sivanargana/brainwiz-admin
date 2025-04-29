@@ -1,0 +1,20 @@
+{% extends 'layouts/base-layout.html' %} {% block baseLayout %}
+
+<div class="md:tw-pl-[70px]  md:[&:has([data-layout='sidebar'].classic)]:!tw-pl-[300px]">
+{% include "components/sidebar.html" %}
+<div class="tw-flex tw-flex-col">
+  {% include "components/header.html" %}
+  <div class="tw-p-[20px]">
+    {% block adminLayout %}
+    <p>Page Will Comes Here!</p>
+    {% endblock %}
+  </div>
+</div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+  app.init()
+</script>
+
+{% endblock %}
