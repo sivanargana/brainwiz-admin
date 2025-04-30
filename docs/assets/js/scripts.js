@@ -29,7 +29,7 @@ const app = {
     app.menu();
  
 
-    new TomSelect(".bw-select-multi",{});
+    new TomSelect(".bw-select-multi",{create: true});
 
 
     document.querySelector(".bw-dropdown-filter-close")?.addEventListener("click",(e)=>{
