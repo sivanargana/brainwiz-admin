@@ -133,59 +133,104 @@
   </head>
   <body>
     
-<div class="tw-bg-[#F7F7FA] tw-min-h-screen tw-flex">
-  <div class="tw-flex-auto tw-bg-slate-100 tw-hidden lg:tw-flex tw-flex-col tw-items-center tw-justify-center tw-min-w-0 tw-p-[20px] lg:tw-p-[40px]">
-      <img src="assets/images/login.svg"  class="tw-w-[600px] tw-max-w-full">
+  
+<div class="tw-min-h-screen tw-bg-gray-50">
+  <div class="tw-flex tw-items-center tw-bg-white tw-shadow-md tw-px-[20px] tw-gap-[20px] tw-min-h-[60px] tw-sticky tw-top-0 tw-z-[9]">
+    <div class="tw-flex-auto tw-font-bold tw-text-[20px]">Add New College  </div>
+    <div class="tw-flex tw-items-center tw-gap-[10px]">
+      <button type="button" class="btn btn-outline-default bw-btn"><i class="fi fi-rr-cross"></i> Close</button>
+      <button type="button" class="btn btn-dark bw-btn"><i class="fi fi-rr-upload"></i>Publish</button>
+    </div>
   </div>
-  <div class="tw-flex-none tw-w-[500px] tw-bg-white tw-flex tw-flex-col tw-justify-center tw-py-[40px] tw-px-[20px] lg:tw-p-[40px]">
-      <div class="lg:tw-w-[450px] tw-max-w-full tw-mx-auto">
-        <a href="index.html"><img src="assets/images/logo.svg" class="tw-h-[30px] tw-max-w-full tw-mb-[20px] lg:tw-mb-[60px]" /></a>
-          
-<div class="tw-text-[30px] tw-font-bold tw-mb-[3px]">Welcome to Back! 👋</div>
-<div class="tw-text-[14px] tw-font-normal tw-mb-[20px] tw-text-gray-400">Please sign in to your account and start the adventure</div>
-<div class="floating-label tw-mb-[20px]">
-  <input type="email" class="form-control" id="username" placeholder=" " />
-  <label for="username">Username</label>
-</div>
-<div class="floating-label tw-mb-[20px]">
-  <input type="password" class="form-control" id="password" placeholder=" " />
-  <label for="password">Password</label>
-</div>
-<div class="tw-flex tw-flex-col tw-gap-[10px]">
-  <a href="forgot-password.html" class="btn btn-link tw-w-full">Forgot Your Password?</a>
-  <a data-bs-toggle="modal" data-bs-target="#otpmodal" class="btn btn-primary tw-w-full">Sign In</a>
-  <a href="register.html" class="btn btn-link tw-w-full"><span class="tw-text-gray-500">New on our platform?</span> Sign Up</a>
-</div>
- 
-      </div>
-  </div>
-  </div>
-</div>
-<div class="modal fade" id="otpmodal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Account</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p class="tw-text-center">Enter 4 digit OTP sent to <b>+91 9xxxxxxx75</b></p>
-        <div class="tw-flex tw-gap-[10px] tw-justify-center tw-mb-[1rem]">
-          <input type="text" class="form-control tw-w-[40px]" />
-          <input type="text" class="form-control tw-w-[40px]" />
-          <input type="text" class="form-control tw-w-[40px]" />
-          <input type="text" class="form-control tw-w-[40px]" />
-        </div>
-        <div class="tw-flex tw-justify-center tw-mb-[1rem]">
-          <a href="dashboard.html" class="btn btn-primary">Verify and Proceed</a>
-          <!-- <button type="button" class="btn btn-primary">Verify and Proceed</button> -->
-        </div>
-        <p class="tw-text-center">Did not receive the OTP? <a class="tw-font-bold">Resend</a></p>
-        <p class="tw-text-center">Resend in <a class="tw-text-primary">5 seconds</a></p>
+  <div class="tw-p-[40px]">
+    <div class="tw-container tw-mx-auto tw-max-w-[800px]">
+       <div class="tw-flex tw-mb-[20px]">
+          <div class="tw-flex tw-items-center tw-gap-[5px] tw-flex-auto">
+            <span class="btn btn-sm btn-icon btn-dark">1</span> 
+            <span>Step One</span> 
+            <span class="tw-flex tw-border-0 tw-border-t tw-border-solid tw-border-gray-300 tw-flex-auto"></span>
+          </div>
+          <div class="tw-flex tw-items-center tw-gap-[5px] tw-flex-auto">
+            <span class="tw-flex tw-border-0 tw-border-t tw-border-solid tw-border-gray-300 tw-flex-auto"></span>
+            <span class="btn btn-sm btn-icon btn-outline-default">2</span> 
+            <span>Step Two</span> 
+            <span class="tw-flex tw-border-0 tw-border-t tw-border-solid tw-border-gray-300 tw-flex-auto"></span>
+          </div>
+          <div class="tw-flex tw-items-center tw-gap-[5px] tw-flex-auto">
+            <span class="tw-flex tw-border-0 tw-border-t tw-border-solid tw-border-gray-300 tw-flex-auto"></span>
+            <span class="btn btn-sm btn-icon btn-outline-default">3</span> 
+            <span>Step Three</span>  
+          </div>
+        
+       </div>
+      <div class="tw-bg-white tw-border tw-border-solid tw-border-gray-300 tw-rounded-[20px] tw-p-[20px]">
+        <form action="">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Courses</label>
+                 <select class="bw-select-multi" multiple>
+                  <option>One</option>
+                  <option>Two</option>
+                  <option>Three</option>
+                 </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Head</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Code</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Password</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            
+          </div>
+          <div class="bw-card tw-p-[10px] tw-flex tw-items-center tw-mt-[20px] tw-sticky tw-bottom-[20px] tw-z-[9]">
+            <button type="button" class="btn btn-outline-default bw-btn"><i class="fi fi-rr-arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-dark bw-btn tw-ml-auto">Next <i class="fi fi-rr-arrow-right"></i></button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
+
+
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
@@ -194,5 +239,9 @@
     <script src="https://cdn.jsdelivr.net/npm/metismenujs"></script>
     <script src="assets/js/scripts.js"></script>
     
+<script>
+  app.init()
+</script>
+
   </body>
 </html>

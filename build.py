@@ -2,7 +2,7 @@
 
 import os
 import shutil
-from app import app;
+from app import app
 
 dist = 'docs'
 if os.path.exists(dist):

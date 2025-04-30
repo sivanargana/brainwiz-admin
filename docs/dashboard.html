@@ -7,9 +7,10 @@
     <meta name="theme-color" content="#3b82f6" />
     <title>Brainwiz</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenujs/dist/metismenujs.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenujs/dist/metismenujs.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> 
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,11 +31,103 @@
     </script>
     <style type="text/tailwindcss">
       @layer components {
-        .btn-icon {
-          @apply tw-flex tw-items-center tw-justify-center tw-rounded-full tw-size-[40px] tw-p-0 hover:tw-bg-gray-200;
+ 
+        .bw-select-multi{
+          &+*{
+            .ts-control{
+              @apply tw-h-[40px] tw-border-gray-300 tw-rounded-[10px];
+            }
+            .ts-dropdown{
+              @apply bw-card tw-overflow-hidden;
+            }
+          }
         }
-        .bw-card{
+        .bw-form-control {
+          @apply tw-h-[40px] tw-rounded-[10px] tw-border-gray-300;
+        }
+        .bw-btn {
+          @apply tw-inline-flex tw-items-center tw-gap-[10px] tw-h-[40px] tw-rounded-lg;
+          &.btn-sm {
+            @apply tw-h-[32px];
+          }
+        }
+        .btn-icon {
+          @apply tw-flex tw-items-center tw-justify-center tw-rounded-full tw-size-[40px] tw-p-0 [&.btn-default:hover]:tw-bg-gray-200;
+          &.btn-sm {
+            @apply tw-size-[32px];
+          }
+        }
+        .bw-card {
           @apply tw-bg-white tw-border tw-border-solid tw-border-gray-200 tw-rounded-xl tw-shadow-[0_1px_4px] tw-shadow-black/15;
+        }
+        .fi {
+          @apply tw-leading-[0px] tw-align-middle;
+        }
+        .bw-table {
+          thead {
+            tr {
+              th,
+              td {
+                @apply tw-px-[20px] tw-py-[10px] tw-uppercase tw-text-gray-400 tw-text-[14px];
+              }
+              &:first-child {
+                th,
+                td {
+                  @apply tw-bg-gray-50;
+                }
+              }
+            }
+          }
+          tbody {
+            tr {
+              th,
+              td {
+                @apply tw-px-[20px] tw-py-[10px];
+              }
+              &:last-child {
+                th,
+                td {
+                  @apply tw-border-0;
+                }
+              }
+            }
+          }
+        }
+      }
+      .bw-dropdown {
+        @apply tw-w-[240px] bw-card;
+        .dropdown-item {
+          @apply tw-flex tw-items-center tw-gap-[15px];
+          i {
+            @apply tw-text-blue-500;
+          }
+        }
+      }
+      .bw-dropdown-filter {
+        @apply tw-p-0 !tw-w-[350px] [&.show]:tw-flex-col tw-flex-col;
+        .bw-dropdown-filter-header {
+          @apply tw-border-0 tw-border-b tw-border-solid tw-border-gray-300 tw-min-h-[40px] tw-flex tw-items-center tw-px-[20px];
+          .bw-dropdown-filter-title {
+            @apply tw-flex-auto  tw-text-[18px] tw-font-bold;
+          }
+          .bw-dropdown-filter-close{
+            @apply -tw-mr-[10px];
+          }
+        }
+        .bw-dropdown-filter-body {
+          @apply tw-flex tw-flex-col tw-p-[20px];
+        }
+        .bw-dropdown-filter-footer {
+          @apply tw-border-0 tw-border-t tw-border-solid tw-border-gray-300 tw-min-h-[40px] tw-flex tw-items-center tw-px-[20px] tw-py-[10px];
+        }
+      }
+      .bw-search {
+        @apply tw-relative;
+        i {
+          @apply tw-absolute tw-left-[10px] tw-top-1/2 -tw-translate-y-1/2;
+        }
+        .form-control {
+          @apply tw-pl-[40px];
         }
       }
     </style>
@@ -42,7 +135,7 @@
   <body>
     
 
-<div class="md:tw-pl-[70px]  md:[&:has([data-layout='sidebar'].classic)]:!tw-pl-[300px]">
+<div class="md:tw-pl-[70px] md:[&:has([data-layout='sidebar'].classic)]:!tw-pl-[300px] tw-transition-all tw-duration-300 tw-ease-out">
 <div data-layout="sidebar" class="
 
     tw-fixed
@@ -97,7 +190,6 @@
     [&_[data-layout='menu']_ul_li>a]:tw-gap-[20px] 
     [&_[data-layout='menu']_ul_li>a]:tw-items-center
     [&_[data-layout='menu']_ul_li>a]:tw-text-gray-800
-    [&_[data-layout='menu']_ul_li>a]:tw-text-[16px]
     [&_[data-layout='menu']_ul_li>a]:tw-no-underline
     [&_[data-layout='menu']_ul_li>a]:tw-h-[40px]
     [&_[data-layout='menu']_ul_li>a]:tw-cursor-pointer
@@ -111,7 +203,7 @@
     [&_[data-layout='menu']_ul_li>a>i]:tw-text-[20px]
     [&_[data-layout='menu']_ul_li>a>i]:!tw-text-gray-400
     [&_[data-layout='menu']_ul_li>a>i:before]:tw-align-middle
-    [&_[data-layout='menu']_ul_li.active>a>i]:tw-text-gray-800
+    [&_[data-layout='menu']_ul_li.active>a>i]:!tw-text-gray-800
 
     [&_[data-layout='menu']_ul_li>a>span]:tw-hidden
     [&_[data-layout='menu']_ul_li>a>span]:tw-truncate
@@ -282,21 +374,24 @@
   </div>
 </div>
 <div class="tw-flex tw-flex-col">
-  <div class="tw-flex tw-items-center tw-h-[62px] tw-px-[15px] tw-bg-white  tw-border-0 tw-border-b tw-border-solid  tw-border-gray-200">
-   <button type="button" class="btn btn-icon"  data-layout="sidebar-toggle"><i class="fa fa-table-columns tw-text-[20px]"></i></button>
+  <div class="tw-flex tw-items-center tw-h-[62px] tw-px-[15px] tw-bg-white  tw-border-0 tw-border-b tw-border-solid  tw-border-gray-200 tw-sticky tw-top-0 tw-z-[9]">
+   <button type="button" class="btn btn-icon"  data-layout="sidebar-toggle"><i class="fi fi-rr-sidebar tw-text-[20px]"></i></button>
    <div class="dropdown tw-ml-auto">
       <button class="btn !tw-border-gray-300 tw-py-0 tw-h-[40px] tw-flex tw-items-center tw-gap-[5px]" type="button" data-bs-toggle="dropdown">
-         <i class="fa fa-user-circle tw-text-[24px] tw-text-gray-500"></i>
+         <i class="fi fi-sr-circle-user tw-text-[24px] tw-text-gray-500"></i>
          <span class="tw-align-middle">Admin</span> 
-         <i class="fa fa-angle-down"></i>
+         <i class="fi fi-sr-angle-small-down"></i>
       </button>
-      <ul class="dropdown-menu tw-w-[240px] tw-border-gray-200 tw-shadow-[0_0_20px] tw-shadow-black/15">
+      <ul class="dropdown-menu bw-dropdown">
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><a class="dropdown-item" href="#">Change Password</a></li>  
+        <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">Logout</a></li>
       </ul>
     </div>  
 </div>
+
+   
   <div class="tw-p-[20px]">
     
 <div>
@@ -315,7 +410,8 @@
 </div>
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/metismenujs"></script>
     <script src="assets/js/scripts.js"></script>

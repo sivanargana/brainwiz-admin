@@ -8,7 +8,7 @@ data = {
         {
             "label": "Colleges",
             "icon": "fi fi-sr-bank",
-            "endpoint": ""
+            "endpoint": "/college-add.html"
         },
         {
             "label": "Practice Test",

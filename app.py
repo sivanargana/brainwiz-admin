@@ -19,6 +19,10 @@ def home():
 def index():
     return render_template("/index.html")
 
+@app.route('/college-add.html')
+def collegeadd():
+    return render_template("/college-add.html")
+
 
 @app.route('/login.html')
 def login():

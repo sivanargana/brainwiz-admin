@@ -1,0 +1,102 @@
+{% extends 'layouts/empty-layout.html' %} 
+{% block emptyLayout %}
+<div class="tw-min-h-screen tw-bg-gray-50">
+  <div class="tw-flex tw-items-center tw-bg-white tw-shadow-md tw-px-[20px] tw-gap-[20px] tw-min-h-[60px] tw-sticky tw-top-0 tw-z-[9]">
+    <div class="tw-flex-auto tw-font-bold tw-text-[20px]">Add New College  </div>
+    <div class="tw-flex tw-items-center tw-gap-[10px]">
+      <button type="button" class="btn btn-outline-default bw-btn"><i class="fi fi-rr-cross"></i> Close</button>
+      <button type="button" class="btn btn-dark bw-btn"><i class="fi fi-rr-upload"></i>Publish</button>
+    </div>
+  </div>
+  <div class="tw-p-[40px]">
+    <div class="tw-container tw-mx-auto tw-max-w-[800px]">
+       <div class="tw-flex tw-mb-[20px]">
+          <div class="tw-flex tw-items-center tw-gap-[5px] tw-flex-auto">
+            <span class="btn btn-sm btn-icon btn-dark">1</span> 
+            <span>Step One</span> 
+            <span class="tw-flex tw-border-0 tw-border-t tw-border-solid tw-border-gray-300 tw-flex-auto"></span>
+          </div>
+          <div class="tw-flex tw-items-center tw-gap-[5px] tw-flex-auto">
+            <span class="tw-flex tw-border-0 tw-border-t tw-border-solid tw-border-gray-300 tw-flex-auto"></span>
+            <span class="btn btn-sm btn-icon btn-outline-default">2</span> 
+            <span>Step Two</span> 
+            <span class="tw-flex tw-border-0 tw-border-t tw-border-solid tw-border-gray-300 tw-flex-auto"></span>
+          </div>
+          <div class="tw-flex tw-items-center tw-gap-[5px] tw-flex-auto">
+            <span class="tw-flex tw-border-0 tw-border-t tw-border-solid tw-border-gray-300 tw-flex-auto"></span>
+            <span class="btn btn-sm btn-icon btn-outline-default">3</span> 
+            <span>Step Three</span>  
+          </div>
+        
+       </div>
+      <div class="tw-bg-white tw-border tw-border-solid tw-border-gray-300 tw-rounded-[20px] tw-p-[20px]">
+        <form action="">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Courses</label>
+                 <select class="bw-select-multi" multiple>
+                  <option>One</option>
+                  <option>Two</option>
+                  <option>Three</option>
+                 </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Head</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Code</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <hr>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Password</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            
+          </div>
+          <div class="bw-card tw-p-[10px] tw-flex tw-items-center tw-mt-[20px] tw-sticky tw-bottom-[20px] tw-z-[9]">
+            <button type="button" class="btn btn-outline-default bw-btn"><i class="fi fi-rr-arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-dark bw-btn tw-ml-auto">Next <i class="fi fi-rr-arrow-right"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

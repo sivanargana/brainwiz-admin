@@ -2,8 +2,8 @@ const app = {
   sidebar: () => {
     let sidebar = document.querySelector('[data-layout="sidebar"]');
     let toggle = document.querySelectorAll('[data-layout="sidebar-toggle"]');
-    MetisMenu.attach(document.querySelector('[data-layout="menu"]>ul'));
     if (!sidebar || !toggle) return;
+    MetisMenu.attach(document.querySelector('[data-layout="menu"]>ul'));
     let isSidebarExpanded = true;
     const sidebarToggle = () => {
       isSidebarExpanded = !isSidebarExpanded;
@@ -27,5 +27,16 @@ const app = {
   init: () => {
     app.sidebar();
     app.menu();
+ 
+
+    new TomSelect(".bw-select-multi",{});
+
+
+    document.querySelector(".bw-dropdown-filter-close")?.addEventListener("click",(e)=>{
+      let filterDropdown =  new bootstrap.Dropdown(e.target.closest(".dropdown").querySelector('[data-bs-toggle="dropdown"]'))
+      filterDropdown.hide()
+
+    },false)
+ 
   },
 };
