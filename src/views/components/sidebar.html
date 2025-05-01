@@ -55,7 +55,7 @@
     [&_[data-layout='menu']_ul_li>a]:tw-no-underline
     [&_[data-layout='menu']_ul_li>a]:tw-h-[40px]
     [&_[data-layout='menu']_ul_li>a]:tw-cursor-pointer
-    [&_[data-layout='menu']_ul_li:hover>a]:tw-opacity-50
+
 
     [&_[data-layout='menu']_ul_li>a>i]:tw-flex-none
     [&_[data-layout='menu']_ul_li>a>i]:tw-size-[24px]
@@ -63,9 +63,10 @@
     [&_[data-layout='menu']_ul_li>a>i]:tw-items-center 
     [&_[data-layout='menu']_ul_li>a>i]:tw-justify-center
     [&_[data-layout='menu']_ul_li>a>i]:tw-text-[20px]
-    [&_[data-layout='menu']_ul_li>a>i]:!tw-text-gray-400
+    [&_[data-layout='menu']_ul_li>a>i]:!tw-text-gray-300
     [&_[data-layout='menu']_ul_li>a>i:before]:tw-align-middle
     [&_[data-layout='menu']_ul_li.active>a>i]:!tw-text-gray-800
+    [&_[data-layout='menu']_ul_li:hover>a>i]:!tw-text-gray-800
 
     [&_[data-layout='menu']_ul_li>a>span]:tw-hidden
     [&_[data-layout='menu']_ul_li>a>span]:tw-truncate
@@ -121,7 +122,7 @@
     <ul >
       {% for item in list %} 
       <li class="{{ 'active' if item.endpoint == url_for(request.endpoint) else '' }}">
-        <a class="{% if item.children %}has-arrow{% endif %}">{% if item.icon %}<i class="{{item.icon}}"></i>{% endif %}<span>{{item.label}}</span></a>
+        <a href="{{item.endpoint }}" class="{% if item.children %} has-arrow {% endif %}">{% if item.icon %}<i class="{{item.icon}}"></i>{% endif %}<span>{{item.label}}</span></a>
         {% if item.children %} {{ recursive(item.children) }} {% endif %}
       </li>
       {% endfor %}

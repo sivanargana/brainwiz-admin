@@ -19,24 +19,15 @@ def home():
 def index():
     return render_template("/index.html")
 
+
 @app.route('/college-add.html')
 def collegeadd():
     return render_template("/college-add.html")
 
 
-@app.route('/login.html')
-def login():
-    return render_template("/login.html")
-
-
-@app.route('/register.html')
-def register():
-    return render_template("/register.html")
-
-
-@app.route('/forgot-password.html')
-def forgotpassword():
-    return render_template("/forgot-password.html")
+@app.route('/colleges.html')
+def colleges():
+    return render_template("/colleges.html")
 
 
 @app.route('/dashboard.html')
