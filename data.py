@@ -3,12 +3,25 @@ data = {
         {
             "label": "Dashboard",
             "icon": "fi fi-sr-table-columns",
-            "endpoint": "/dashboard.html"
+            "endpoint": "dashboard.html"
         },
         {
             "label": "Colleges",
             "icon": "fi fi-sr-bank",
-            "endpoint": "/colleges.html"
+            "children": [
+                {
+                    "label": "Courses",
+                    "endpoint": "courses.html"
+                },
+                {
+                    "label": "Colleges",
+                    "endpoint": "colleges.html"
+                },
+                {
+                    "label": "Students",
+                    "endpoint": "students.html"
+                },
+            ]
         },
         {
             "label": "Practice Test",
