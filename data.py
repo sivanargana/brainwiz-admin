@@ -105,6 +105,35 @@ data = {
             "endpoint": ""
         }
     ],
+    "students":[
+    {"name": "Pavan", "college": "Testing College 2025", "email": "pavanjaiswal5@gmail.com", "phone": "8184801608", "branch": "B.Sc Computers"},
+    {"name": "Harshit", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "programming966051@gmail.com", "phone": "9660518977", "branch": "Computer Science Engineering (CSE)"},
+    {"name": "Khushi", "college": "Terna Engineering College ( Mumbai) 2025", "email": "khushichaudhary2223@ternaengg.ac.in", "phone": "7972905414", "branch": "Computer Science Engineering (CSE)"},
+    {"name": "Chinmay", "college": "Terna Engineering College ( Mumbai) 2025", "email": "chinmaysamant2223@ternaengg.ac.in", "phone": "8898297674", "branch": "Computer Science Engineering (CSE)"},
+    {"name": "Shubham", "college": "Terna Engineering College ( Mumbai) 2025", "email": "bashteshubham2122@ternaengg.ac.in", "phone": "9137867094", "branch": "Electronics and Telecommunication Engineering"},
+    {"name": "Amar", "college": "Terna Engineering College ( Mumbai) 2025", "email": "amarchaudhari2223@ternaengg.in", "phone": "7208266151", "branch": "Computer Science Engineering (CSE)"},
+    {"name": "Shravani", "college": "Terna Engineering College ( Mumbai) 2025", "email": "shravanisawekar21@gmail.com", "phone": "9321833238", "branch": "Computer Science Engineering (CSE)"},
+    {"name": "Aatif", "college": "Terna Engineering College ( Mumbai) 2025", "email": "aatifansari2223@ternaengg.ac.in", "phone": "7208473600", "branch": "Electronics and Telecommunication Engineering"},
+    {"name": "Aadarsh", "college": "Terna Engineering College ( Mumbai) 2025", "email": "singhsingh2223@ternaengg.ac.in", "phone": "9321858495", "branch": "Electronics and Telecommunication Engineering"},
+    {"name": "Mustafa", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "oreki3255@gmail.com", "phone": "7032151713", "branch": "Information Technology (IT)"},
+    {"name": "Hasan Ahmed Siddiqui", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "Yonbotehas@gmail.com", "phone": "8522880401", "branch": "Information Technology (IT)"},
+    {"name": "Haroon Ahmed Siddiqui", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "haroonhasharbasali@gmail.com", "phone": "9059681148", "branch": "Information Technology (IT)"},
+    {"name": "Mir mubashir", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "mubashirali0103@gmail.com", "phone": "9618339547", "branch": "Information Technology (IT)"},
+    {"name": "Syed imtiyaz Ali", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "imtiyazsyed8600@gmail.com", "phone": "8143290166", "branch": "Electronics and Communication Engineering (ECE)"},
+    {"name": "Mohd yaser", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "mohdyaser2005@gmail.com", "phone": "7287086145", "branch": "Electronics and Communication Engineering (ECE)"},
+    {"name": "Ghulam Mehdi", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "mehdi2005khan@gmail.com", "phone": "7337592248", "branch": "Electronics and Communication Engineering (ECE)"},
+    {"name": "Syed", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "saadhafeez217@gmail.com", "phone": "0571930963", "branch": "Information Technology (IT)"},
+    {"name": "Shah Mohammed Asim", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "shahmohammedasim05@gmail.com", "phone": "8125949856", "branch": "Information Technology (IT)"},
+    {"name": "irfan", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "shaik901095@gmail.com", "phone": "9640760192", "branch": "Information Technology (IT)"},
+    {"name": "Mohd Wasiuddin", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "mdwasi2004@gmail.com", "phone": "9704814424", "branch": "Information Technology (IT)"},
+    {"name": "Shanawaz", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "shanwazsohail914@gmail.com", "phone": "7386979224", "branch": "Information Technology (IT)"},
+    {"name": "FAHAD", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "fk6499743@gmail.com", "phone": "9908631011", "branch": "Information Technology (IT)"},
+    {"name": "shaik.Hidayayath", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "hidayat101custom@gmail.com", "phone": "9182100732", "branch": "Electronics and Communication Engineering (ECE)"},
+    {"name": "Malik", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "mohammedabdulmalikhassan@gmail.com", "phone": "9121491001", "branch": "Information Technology (IT)"},
+    {"name": "Mohammad taha", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "mfurqhan545@gmail.com", "phone": "9121781465", "branch": "Mechanical Engineering (Mech)"},
+    {"name": "Hafsa", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "hafsauddin18@gmail.com", "phone": "8688235448", "branch": "Information Technology (IT)"},
+    {"name": "Shaik sameer", "college": "LORDS Institute of Engineering and Technology - 2024", "email": "sameersk1709@gmail.com", "phone": "8978753701", "branch": "Information Technology (IT)"}
+],
     "courses": [
         {
             "title": "Campus Recruitment Training",

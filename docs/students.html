@@ -351,12 +351,12 @@
         
       </li>
       
-      <li class="active">
+      <li class="">
         <a href="colleges.html" class=""><span>Colleges</span></a>
         
       </li>
       
-      <li class="">
+      <li class="active">
         <a href="students.html" class=""><span>Students</span></a>
         
       </li>
@@ -488,26 +488,111 @@
   <div class="tw-p-[20px]">
     
 <div>
-  <div class="menu-swiper">
+  <div class="menu-swiper" >
     <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><a href="#">Courses</a></div>
-        <div class="swiper-slide"><a href="#" class="active">Colleges</a></div>
-        <div class="swiper-slide"><a href="students.html">Students</a></div> 
+        <div class="swiper-slide"><a href="colleges.html">Colleges</a></div>
+        <div class="swiper-slide"><a href="#" class="active">Students</a></div> 
       </div>
     </div>
     <div class="menu-swiper-nav-prev"><i class="fi fi-sr-angle-left"></i></div>
     <div class="menu-swiper-nav-next"><i class="fi fi-sr-angle-right"></i></div>
   </div>
   <div class="tw-flex-col tw-flex md:tw-flex-row md:tw-items-center tw-my-[20px] tw-gap-[10px]">
-    <div class="tw-text-[20px] tw-font-bold tw-flex-auto">Colleges</div>
+    <div class="tw-text-[20px] tw-font-bold tw-flex-auto">Students</div>
     <div class="bw-search">
       <i class="fi fi-rr-search"></i>
       <input class="form-control bw-form-control" placeholder="Search" />
     </div>
     <div class="tw-flex tw-items-center tw-gap-[10px]">
-      <button type="button" class="btn btn-outline-primary bw-btn" data-bs-toggle="modal" data-bs-target="#upload-student-upload">Upload Students <i class="fi fi-rr-upload"></i></button>
-      <a class="btn btn-primary btn-icon" href="college-add.html"><i class="fi fi-sr-plus"></i></a>
+      <button type="button" class="btn btn-outline-primary bw-btn">Download <i class="fi fi-rr-download"></i></button>
+      <div class="dropdown">
+        <button type="button" class="btn btn-outline-default bw-btn" data-bs-toggle="dropdown" data-bs-auto-close="outside">Filters <i class="fi fi-rr-settings-sliders"></i></button>
+        <div class="dropdown-menu dropdown-menu-end bw-dropdown bw-dropdown-filter">
+          <div class="bw-dropdown-filter-header">
+            <div class="bw-dropdown-filter-title">Filters</div>
+            <button class="bw-dropdown-filter-close btn btn-sm btn-icon" type="button"><i class="fi fi-sr-cross"></i></button>
+          </div>
+          <div class="bw-dropdown-filter-body">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">College</label>
+                    <select class="form-select form-select-sm">
+                      
+                      <option>Testing College 2025</option> 
+                      
+                      <option>LORDS Institute of Engineering and Technology - 2024</option> 
+                      
+                      <option>R.B.V.R.R.W.C - 2025</option> 
+                      
+                      <option>Testing College 2024</option> 
+                      
+                      <option>St.Francis 2024</option> 
+                      
+                      <option>Terna Engineering College ( Mumbai) 2025</option> 
+                      
+                      <option>Workshop - 1</option> 
+                      
+                      <option>Terna Engineering College ( Mumbai) 2024</option> 
+                      
+                      <option>St.Francis 2023</option> 
+                      
+                      <option>MJCET - 2023 batch</option> 
+                      
+                      <option>Terna Engineering College ( Mumbai) 2023</option> 
+                      
+                      <option>Loyola Academy 2023</option> 
+                      
+                      <option>Chaitanya Bharati Institute of Technology</option> 
+                      
+                      <option>St.Francis 2022</option> 
+                      
+                      <option>Mahatma Gandhi Institute of Technology</option> 
+                      
+                      <option>Mahaveer Engineering College</option> 
+                      
+                      <option>Muffakham Jah College of Engineering and Technology (MJCET)</option> 
+                      
+                      <option>St.Peter&#39;s Engineering college</option> 
+                      
+                      <option>Loyola Academy 2022</option> 
+                      
+                      </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input class="form-control form-control-sm" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input class="form-control form-control-sm" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Branch</label>
+                    <select class="form-select form-select-sm">
+                      <option>Select</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="bw-dropdown-filter-footer">
+            <button type="button" class="btn tw-mr-auto bw-btn">Reset All</button>
+            <button type="button" class="btn btn-outline-default bw-btn">Apply</button>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#upload-student-upload"><i class="fi fi-sr-plus"></i></a>
  
     </div>
 
@@ -517,27 +602,31 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>College</th>
           <th>Email</th>
           <th>Phone</th>
-          <th>Head</th>
-          <th>Code</th> 
-          <th>Status</th>
+          <th>Branch</th> 
+          <th>QR</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         
         <tr>
+          <td>Pavan</td>
           <td>Testing College 2025</td>
           <td>pavanjaiswal5@gmail.com</td>
-          <td>8142123938</td>
-          <td>Samyukta Mam</td>
-          <td></td> 
+          <td>8184801608</td>
+          <td>B.Sc Computers</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -548,19 +637,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -570,16 +647,20 @@
         </tr>
         
         <tr>
+          <td>Harshit</td>
           <td>LORDS Institute of Engineering and Technology - 2024</td>
-          <td>saisuman@lords.ac.in</td>
-          <td>8885852485</td>
-          <td>R.Suman</td>
-          <td>LORDS</td> 
+          <td>programming966051@gmail.com</td>
+          <td>9660518977</td>
+          <td>Computer Science Engineering (CSE)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -590,19 +671,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -612,142 +681,20 @@
         </tr>
         
         <tr>
-          <td>R.B.V.R.R.W.C - 2025</td>
-          <td>rbvrrplacement@gmail.com</td>
-          <td>8142123938</td>
-          <td>Samyukta Mam</td>
-          <td>RBVRRWC</td> 
-          <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
-              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        
-        <tr>
-          <td>Testing College 2024</td>
-          <td>pavanjaiswal5@gmail.com</td>
-          <td>8142123938</td>
-          <td>TESTING</td>
-          <td>TEST</td> 
-          <td>
-            
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
-            
-          </td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
-              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        
-        <tr>
-          <td>St.Francis 2024</td>
-          <td>placements@sfc.ac.in</td>
-          <td>9912151346</td>
-          <td>Marie Thomas</td>
-          <td>SFC</td> 
-          <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
-              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        
-        <tr>
+          <td>Khushi</td>
           <td>Terna Engineering College ( Mumbai) 2025</td>
-          <td>gauravdeshmukh@ternaengg.ac.in</td>
-          <td>8275207535</td>
-          <td>Gaurav Deshmukh</td>
-          <td>TEC</td> 
+          <td>khushichaudhary2223@ternaengg.ac.in</td>
+          <td>7972905414</td>
+          <td>Computer Science Engineering (CSE)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -758,19 +705,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -780,16 +715,20 @@
         </tr>
         
         <tr>
-          <td>Workshop - 1</td>
-          <td>pavanjaiswal5@gmail.com</td>
-          <td>8142123938</td>
-          <td>Pavan</td>
-          <td>workshop 1</td> 
+          <td>Chinmay</td>
+          <td>Terna Engineering College ( Mumbai) 2025</td>
+          <td>chinmaysamant2223@ternaengg.ac.in</td>
+          <td>8898297674</td>
+          <td>Computer Science Engineering (CSE)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -800,19 +739,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -822,16 +749,20 @@
         </tr>
         
         <tr>
-          <td>Terna Engineering College ( Mumbai) 2024</td>
-          <td>gauravdeshmukh@ternaengg.ac.in</td>
-          <td>8275207535</td>
-          <td>Gaurav Deshmukh</td>
-          <td>TEC</td> 
+          <td>Shubham</td>
+          <td>Terna Engineering College ( Mumbai) 2025</td>
+          <td>bashteshubham2122@ternaengg.ac.in</td>
+          <td>9137867094</td>
+          <td>Electronics and Telecommunication Engineering</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -842,19 +773,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -864,16 +783,20 @@
         </tr>
         
         <tr>
-          <td>St.Francis 2023</td>
-          <td>placements@sfc.ac.in</td>
-          <td>9912151346</td>
-          <td>Marie</td>
-          <td>SFC</td> 
+          <td>Amar</td>
+          <td>Terna Engineering College ( Mumbai) 2025</td>
+          <td>amarchaudhari2223@ternaengg.in</td>
+          <td>7208266151</td>
+          <td>Computer Science Engineering (CSE)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -884,19 +807,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -906,16 +817,20 @@
         </tr>
         
         <tr>
-          <td>MJCET - 2023 batch</td>
-          <td>farooqbasha@mjcollege.ac.in</td>
-          <td>9441090408</td>
-          <td>FAROOQ BASHA</td>
-          <td>MJCET</td> 
+          <td>Shravani</td>
+          <td>Terna Engineering College ( Mumbai) 2025</td>
+          <td>shravanisawekar21@gmail.com</td>
+          <td>9321833238</td>
+          <td>Computer Science Engineering (CSE)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -926,19 +841,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -948,16 +851,20 @@
         </tr>
         
         <tr>
-          <td>Terna Engineering College ( Mumbai) 2023</td>
-          <td>gauravdeshmukh@ternaengg.ac.in</td>
-          <td>8275207535</td>
-          <td>Gaurav Deshmukh</td>
-          <td>TEC</td> 
+          <td>Aatif</td>
+          <td>Terna Engineering College ( Mumbai) 2025</td>
+          <td>aatifansari2223@ternaengg.ac.in</td>
+          <td>7208473600</td>
+          <td>Electronics and Telecommunication Engineering</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -968,19 +875,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -990,16 +885,20 @@
         </tr>
         
         <tr>
-          <td>Loyola Academy 2023</td>
-          <td>loyolaplacements@gmail.com</td>
-          <td>8977012587</td>
-          <td>Deepthi</td>
-          <td>LOYOLA 2023</td> 
+          <td>Aadarsh</td>
+          <td>Terna Engineering College ( Mumbai) 2025</td>
+          <td>singhsingh2223@ternaengg.ac.in</td>
+          <td>9321858495</td>
+          <td>Electronics and Telecommunication Engineering</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -1010,19 +909,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -1032,16 +919,20 @@
         </tr>
         
         <tr>
-          <td>Chaitanya Bharati Institute of Technology</td>
-          <td>placements@cbit.ac.in</td>
-          <td>9441044722</td>
-          <td>Pratima Mam</td>
-          <td>CBIT</td> 
+          <td>Mustafa</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>oreki3255@gmail.com</td>
+          <td>7032151713</td>
+          <td>Information Technology (IT)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -1052,19 +943,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -1074,16 +953,20 @@
         </tr>
         
         <tr>
-          <td>St.Francis 2022</td>
-          <td>placements@sfc.ac.in</td>
-          <td>9912151346</td>
-          <td>Marie</td>
-          <td>SFC</td> 
+          <td>Hasan Ahmed Siddiqui</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>Yonbotehas@gmail.com</td>
+          <td>8522880401</td>
+          <td>Information Technology (IT)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -1094,19 +977,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -1116,16 +987,20 @@
         </tr>
         
         <tr>
-          <td>Mahatma Gandhi Institute of Technology</td>
-          <td>placements@mgit.ac.in</td>
-          <td>9618274392</td>
-          <td>MGIT</td>
-          <td>MGIT</td> 
+          <td>Haroon Ahmed Siddiqui</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>haroonhasharbasali@gmail.com</td>
+          <td>9059681148</td>
+          <td>Information Technology (IT)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -1136,19 +1011,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -1158,16 +1021,20 @@
         </tr>
         
         <tr>
-          <td>Mahaveer Engineering College</td>
-          <td>misttpo@gmail.com</td>
-          <td>9121544906</td>
-          <td>Pramoda</td>
-          <td>MAHAVEER</td> 
+          <td>Mir mubashir</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>mubashirali0103@gmail.com</td>
+          <td>9618339547</td>
+          <td>Information Technology (IT)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -1178,19 +1045,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -1200,16 +1055,20 @@
         </tr>
         
         <tr>
-          <td>Muffakham Jah College of Engineering and Technology (MJCET)</td>
-          <td>placements@mjcollege.ac.in</td>
-          <td>9866576030</td>
-          <td>MJCET Rajani</td>
-          <td>MJCET</td> 
+          <td>Syed imtiyaz Ali</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>imtiyazsyed8600@gmail.com</td>
+          <td>8143290166</td>
+          <td>Electronics and Communication Engineering (ECE)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -1220,19 +1079,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -1242,16 +1089,20 @@
         </tr>
         
         <tr>
-          <td>St.Peter&#39;s Engineering college</td>
-          <td>training@stpetershyd.com</td>
-          <td>9652601484</td>
-          <td>St.Peter&#39;s</td>
-          <td>SPEC(BK)</td> 
+          <td>Mohd yaser</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>mohdyaser2005@gmail.com</td>
+          <td>7287086145</td>
+          <td>Electronics and Communication Engineering (ECE)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-primary">Active</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -1262,19 +1113,7 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
-                </li>
-                <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -1284,16 +1123,20 @@
         </tr>
         
         <tr>
-          <td>Loyola Academy 2022</td>
-          <td>pavanjaiswal5@gmail.com</td>
-          <td>8142123938</td>
-          <td>LOYALA ACADEMY</td>
-          <td>Loyola 2022</td> 
+          <td>Ghulam Mehdi</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>mehdi2005khan@gmail.com</td>
+          <td>7337592248</td>
+          <td>Electronics and Communication Engineering (ECE)</td>
           <td>
-            
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
-            
-          </td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
@@ -1304,19 +1147,381 @@
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
+                
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Syed</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>saadhafeez217@gmail.com</td>
+          <td>0571930963</td>
+          <td>Information Technology (IT)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <span class="dropdown-item">
-                    <i class="fi fi-sr-calendar"></i>
-                    <div>Attendence</div>
-                    <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                      <label class="form-check-label" for="switchCheckDefault"></label>
-                    </div>
-                  </span>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Shah Mohammed Asim</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>shahmohammedasim05@gmail.com</td>
+          <td>8125949856</td>
+          <td>Information Technology (IT)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>irfan</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>shaik901095@gmail.com</td>
+          <td>9640760192</td>
+          <td>Information Technology (IT)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Mohd Wasiuddin</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>mdwasi2004@gmail.com</td>
+          <td>9704814424</td>
+          <td>Information Technology (IT)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Shanawaz</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>shanwazsohail914@gmail.com</td>
+          <td>7386979224</td>
+          <td>Information Technology (IT)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>FAHAD</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>fk6499743@gmail.com</td>
+          <td>9908631011</td>
+          <td>Information Technology (IT)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>shaik.Hidayayath</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>hidayat101custom@gmail.com</td>
+          <td>9182100732</td>
+          <td>Electronics and Communication Engineering (ECE)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Malik</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>mohammedabdulmalikhassan@gmail.com</td>
+          <td>9121491001</td>
+          <td>Information Technology (IT)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Mohammad taha</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>mfurqhan545@gmail.com</td>
+          <td>9121781465</td>
+          <td>Mechanical Engineering (Mech)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Hafsa</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>hafsauddin18@gmail.com</td>
+          <td>8688235448</td>
+          <td>Information Technology (IT)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Shaik sameer</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>sameersk1709@gmail.com</td>
+          <td>8978753701</td>
+          <td>Information Technology (IT)</td>
+          <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
+            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
+              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
+            </div>
+            </div>
+          </td> 
+          
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
@@ -1361,6 +1566,50 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+      <div class="tw-mb-[20px]">
+        <label class="form-label">College</label>
+        <select class="form-select">
+          
+          <option>Testing College 2025</option> 
+          
+          <option>LORDS Institute of Engineering and Technology - 2024</option> 
+          
+          <option>R.B.V.R.R.W.C - 2025</option> 
+          
+          <option>Testing College 2024</option> 
+          
+          <option>St.Francis 2024</option> 
+          
+          <option>Terna Engineering College ( Mumbai) 2025</option> 
+          
+          <option>Workshop - 1</option> 
+          
+          <option>Terna Engineering College ( Mumbai) 2024</option> 
+          
+          <option>St.Francis 2023</option> 
+          
+          <option>MJCET - 2023 batch</option> 
+          
+          <option>Terna Engineering College ( Mumbai) 2023</option> 
+          
+          <option>Loyola Academy 2023</option> 
+          
+          <option>Chaitanya Bharati Institute of Technology</option> 
+          
+          <option>St.Francis 2022</option> 
+          
+          <option>Mahatma Gandhi Institute of Technology</option> 
+          
+          <option>Mahaveer Engineering College</option> 
+          
+          <option>Muffakham Jah College of Engineering and Technology (MJCET)</option> 
+          
+          <option>St.Peter&#39;s Engineering college</option> 
+          
+          <option>Loyola Academy 2022</option> 
+          
+          </select>
+      </div>
       <label class="bw-upload">
         <input type="file" />
         <div>

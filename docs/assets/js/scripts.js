@@ -16,11 +16,11 @@ const app = {
     sidebarToggle();
   },
   menu: () => {
-    new Swiper(".menu-swiper", {
+    new Swiper(".menu-swiper .swiper", {
       slidesPerView: "auto",
       navigation: {
-        nextEl: ".menu-swiper-nav-next",
-        prevEl: ".menu-swiper-nav-prev",
+        nextEl: ".menu-swiper .menu-swiper-nav-next",
+        prevEl: ".menu-swiper .menu-swiper-nav-prev",
       },
     });
   },
@@ -30,7 +30,6 @@ const app = {
  
 
     if(document.querySelector(".bw-select-multi")){
-
       new TomSelect(".bw-select-multi",{create: true});
     }
 

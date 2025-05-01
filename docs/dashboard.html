@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#3b82f6" />
     <title>Brainwiz</title>
-    <base href="/" />
-    <!-- <base href="/brainwiz-admin/" > -->
+    <!-- <base href="/" /> -->
+    <base href="/brainwiz-admin/" >
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenujs/dist/metismenujs.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -32,6 +32,44 @@
     </script>
     <style type="text/tailwindcss">
       @layer components {
+        .menu-swiper{
+          @apply  tw-relative  tw-px-[10px] bw-card;
+          .swiper{
+            .swiper-slide{
+              @apply tw-w-auto;
+              &:not(:last-child){
+                @apply tw-border-0 tw-border-r tw-border-solid tw-border-gray-200/70;
+              }
+              a{
+                @apply tw-flex tw-items-center tw-justify-center tw-px-[20px] tw-h-[50px] tw-no-underline tw-text-gray-800;
+                &::before{
+                  @apply tw-content-[''] tw-absolute tw-bottom-0 tw-left-1/2 tw-w-[50px] tw-h-[3px] tw-bg-gray-800 tw-rounded-full -tw-translate-x-1/2 tw-hidden;
+                }
+                &:hover{
+                  @apply tw-bg-gray-50 tw-cursor-pointer;
+                }
+                &.active{
+                  &::before{
+                    @apply tw-block;
+                  }
+                }
+              }
+            }
+          }
+          [class*='menu-swiper-nav']{
+            @apply tw-absolute tw-z-[5] tw-top-1/2 -tw-translate-y-1/2 tw-size-[30px] tw-rounded-full tw-flex tw-items-center tw-justify-center bw-card;
+            &.menu-swiper-nav-prev{
+              @apply -tw-left-[15px];
+            }
+            &.menu-swiper-nav-next{
+              @apply -tw-right-[15px];
+            }
+            &.swiper-button-disabled{
+              @apply tw-hidden;
+            }
+          }
+         
+        }
         [data-layout="sidebar"] {
           @apply tw-fixed tw-z-[999] tw-left-0 tw-top-0 tw-bottom-0 tw-bg-gray-50 tw-shadow-[inset_-3px_0_3px] tw-shadow-black/5  tw-w-[300px] md:tw-w-[70px] tw-transition-all tw-duration-300 tw-ease-out tw-overflow-hidden tw-flex tw-flex-col;
 
@@ -85,8 +123,11 @@
                     @apply tw-hidden tw-truncate tw-flex-auto;
                   }
                 }
-                &:hover,&.active,&.mm-active{
+                &:hover,&.active,&.mm-active,&:has(ul>li.active){
                     > a{
+                      i{
+                        @apply tw-opacity-100;
+                      }
                       @apply tw-text-primary;
                     }
                   }

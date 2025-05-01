@@ -19,15 +19,18 @@ def home():
 def index():
     return render_template("/index.html")
 
+@app.route('/colleges.html')
+def colleges():
+    return render_template("/colleges.html")
 
 @app.route('/college-add.html')
 def collegeadd():
     return render_template("/college-add.html")
 
+@app.route('/students.html')
+def students():
+    return render_template("/students.html")
 
-@app.route('/colleges.html')
-def colleges():
-    return render_template("/colleges.html")
 
 
 @app.route('/dashboard.html')
