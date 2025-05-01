@@ -6,8 +6,8 @@ data = {
             "endpoint": "dashboard.html"
         },
         {
-            "label": "Colleges",
-            "icon": "fi fi-sr-bank",
+            "label": "Offerings",
+            "icon": "fi fi-sr-inbox-full",
             "children": [
                 {
                     "label": "Courses",
@@ -101,7 +101,7 @@ data = {
         },
         {
             "label": "Settings",
-            "icon": "fi fi-sr-settings-sliders",
+            "icon": "fi fi-sr-settings",
             "endpoint": ""
         }
     ],
@@ -201,4 +201,29 @@ data = {
             "duration": 10,
             "image": "e1.jpeg"
         }
-    ]}
+    ],
+    "colleges":  [
+    {"college": "Testing College 2025", "email": "pavanjaiswal5@gmail.com", "phone": "8142123938", "poc": "Samyukta Mam", "code": "", "status": True},
+    {"college": "LORDS Institute of Engineering and Technology - 2024", "email": "saisuman@lords.ac.in", "phone": "8885852485", "poc": "R.Suman", "code": "LORDS", "status": False},
+    {"college": "R.B.V.R.R.W.C - 2025", "email": "rbvrrplacement@gmail.com", "phone": "8142123938", "poc": "Samyukta Mam", "code": "RBVRRWC", "status": True},
+    {"college": "Testing College 2024", "email": "pavanjaiswal5@gmail.com", "phone": "8142123938", "poc": "TESTING", "code": "TEST", "status": False},
+    {"college": "St.Francis 2024", "email": "placements@sfc.ac.in", "phone": "9912151346", "poc": "Marie Thomas", "code": "SFC", "status": True},
+    {"college": "Terna Engineering College ( Mumbai) 2025", "email": "gauravdeshmukh@ternaengg.ac.in", "phone": "8275207535", "poc": "Gaurav Deshmukh", "code": "TEC", "status": False},
+    {"college": "Workshop - 1", "email": "pavanjaiswal5@gmail.com", "phone": "8142123938", "poc": "Pavan", "code": "workshop 1", "status": True},
+    {"college": "Terna Engineering College ( Mumbai) 2024", "email": "gauravdeshmukh@ternaengg.ac.in", "phone": "8275207535", "poc": "Gaurav Deshmukh", "code": "TEC", "status": True},
+    {"college": "St.Francis 2023", "email": "placements@sfc.ac.in", "phone": "9912151346", "poc": "Marie", "code": "SFC", "status": False},
+    {"college": "MJCET - 2023 batch", "email": "farooqbasha@mjcollege.ac.in", "phone": "9441090408", "poc": "FAROOQ BASHA", "code": "MJCET", "status": True},
+    {"college": "Terna Engineering College ( Mumbai) 2023", "email": "gauravdeshmukh@ternaengg.ac.in", "phone": "8275207535", "poc": "Gaurav Deshmukh", "code": "TEC", "status": False},
+    {"college": "Loyola Academy 2023", "email": "loyolaplacements@gmail.com", "phone": "8977012587", "poc": "Deepthi", "code": "LOYOLA 2023", "status": True},
+    {"college": "Chaitanya Bharati Institute of Technology", "email": "placements@cbit.ac.in", "phone": "9441044722", "poc": "Pratima Mam", "code": "CBIT", "status": False},
+    {"college": "St.Francis 2022", "email": "placements@sfc.ac.in", "phone": "9912151346", "poc": "Marie", "code": "SFC", "status": True},
+    {"college": "Mahatma Gandhi Institute of Technology", "email": "placements@mgit.ac.in", "phone": "9618274392", "poc": "MGIT", "code": "MGIT", "status": False},
+    {"college": "Mahaveer Engineering College", "email": "misttpo@gmail.com", "phone": "9121544906", "poc": "Pramoda", "code": "MAHAVEER", "status": True},
+    {"college": "Muffakham Jah College of Engineering and Technology (MJCET)", "email": "placements@mjcollege.ac.in", "phone": "9866576030", "poc": "MJCET Rajani", "code": "MJCET", "status": False},
+    {"college": "St.Peter's Engineering college", "email": "training@stpetershyd.com", "phone": "9652601484", "poc": "St.Peter's", "code": "SPEC(BK)", "status": True},
+    {"college": "Loyola Academy 2022", "email": "pavanjaiswal5@gmail.com", "phone": "8142123938", "poc": "LOYALA ACADEMY", "code": "Loyola 2022", "status": False},
+]
+
+
+    
+    }

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/all/all.min.css");
 :root {
-  --primary: #3b82f6;
+  --bw-primary: #3b82f6;
   --bw-body-color: #4b5563;
 }
 body {
@@ -20,9 +20,11 @@ body {
 }
 .pagination{
   --bs-pagination-color:var(--bw-body-color);
-  --bs-pagination-active-border-color:black;
-  --bs-pagination-active-bg:black;
+  --bs-pagination-active-border-color:var(--bw-primary);
+  --bs-pagination-active-bg:var(--bw-primary);
 }
+
+
 
 
  /* *{

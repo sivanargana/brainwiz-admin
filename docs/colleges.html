@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#3b82f6" />
     <title>Brainwiz</title>
-    <!-- <base href="/" > -->
-    <base href="/brainwiz-admin/" >
+    <base href="/" />
+    <!-- <base href="/brainwiz-admin/" > -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenujs/dist/metismenujs.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> 
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,7 +23,7 @@
         theme: {
           extend: {
             colors: {
-              primary: "var(--primary)",
+              primary: "var(--bw-primary)",
             },
           },
         },
@@ -31,13 +31,139 @@
     </script>
     <style type="text/tailwindcss">
       @layer components {
- 
-        .bw-select-multi{
-          &+*{
-            .ts-control{
+        [data-layout="sidebar"] {
+          @apply tw-fixed tw-z-[999] tw-left-0 tw-top-0 tw-bottom-0 tw-bg-gray-50 tw-shadow-[inset_-3px_0_3px] tw-shadow-black/5  tw-w-[300px] md:tw-w-[70px] tw-transition-all tw-duration-300 tw-ease-out tw-overflow-hidden tw-flex tw-flex-col;
+
+          > div {
+            @apply tw-flex-auto tw-flex tw-flex-col tw-min-h-0;
+          }
+          [data-layout="logo"] {
+            @apply tw-flex tw-items-center tw-px-[23px] tw-py-[15px] tw-pb-0 tw-no-underline;
+            img{
+              @apply tw-h-[30px] tw-transition-all tw-duration-300 tw-ease-out;
+              clip-path: polygon(0% 0%,18% 0%,18% 100%,0% 100%);
+            }
+            [data-layout="sidebar-toggle"] {
+              @apply tw-ml-auto tw-flex md:tw-hidden;
+            }
+          }
+          [data-layout="menu"] {
+            @apply tw-flex-auto tw-min-h-0;
+            > ul {
+              @apply !tw-p-[23px];
+              &.metismenu {
+                > li {
+                  > a {
+                    &.has-arrow {
+                      &:after {
+                        @apply tw-hidden tw-origin-center -tw-translate-y-[50%] -tw-rotate-[135deg];
+                      }
+                    }
+                  }
+                  &.mm-active {
+                    > a {
+                      &.has-arrow {
+                        &:after {
+                          @apply -tw-rotate-[45deg];
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            ul {
+              @apply tw-list-none tw-p-0 tw-m-0 tw-flex tw-gap-[10px] tw-flex-col;
+              > li {
+                > a {
+                  @apply tw-flex tw-gap-[20px] tw-items-center tw-text-gray-800 tw-no-underline tw-h-[40px] tw-cursor-pointer;
+                  > i {
+                    @apply tw-flex-none tw-size-[24px] tw-flex tw-items-center tw-justify-center tw-text-[20px] tw-opacity-30;
+                  }
+                  > span {
+                    @apply tw-hidden tw-truncate tw-flex-auto;
+                  }
+                }
+                &:hover,&.active,&.mm-active{
+                    > a{
+                      @apply tw-text-primary;
+                    }
+                  }
+              }
+              ul {
+                @apply tw-border-0 tw-border-l-2 tw-border-solid tw-border-gray-300 tw-pl-[30px] tw-ml-[12px] tw-gap-[0px];
+              }
+            }
+          }
+          &.compact {
+            @apply -tw-translate-x-[120%] md:-tw-translate-x-0;
+           
+            &:hover {
+              @apply tw-shadow-[1px_0px_10px] tw-shadow-black/20;
+            }
+          }
+          &.classic {
+            @apply -tw-translate-x-0 md:-tw-translate-x-0;
+          }
+          &.compact:hover,
+          &.classic {
+            @apply tw-w-[300px];
+            [data-layout="logo"] {
+              img{
+                 clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);
+              }
+            }
+            [data-layout="menu"] {
+              @apply tw-overflow-y-auto;
+              > ul {
+                &.metismenu {
+                  li {
+                   > a {
+                      &.has-arrow {
+                        &:after {
+                          @apply tw-block;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              ul {
+                > li {
+                  > a {
+                    > span {
+                      @apply tw-block;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .bw-modal {
+          .modal-header,
+          .modal-footer {
+            @apply tw-border-0;
+          }
+        }
+        .bw-upload {
+          @apply tw-p-0 tw-m-0 tw-flex tw-flex-col;
+          input {
+            @apply tw-hidden;
+          }
+          > div {
+            @apply tw-flex tw-flex-col tw-items-center tw-bg-gray-100 hover:tw-bg-gray-50 tw-cursor-pointer tw-border-2 tw-border-dashed tw-border-gray-300 tw-p-[20px] tw-rounded-lg;
+            p {
+              @apply tw-m-0 tw-text-gray-400 tw-text-[12px];
+            }
+          }
+        }
+        .bw-select-multi {
+          & + * {
+            .ts-control {
               @apply tw-h-[40px] tw-border-gray-300 tw-rounded-[10px];
             }
-            .ts-dropdown{
+            .ts-dropdown {
               @apply bw-card tw-overflow-hidden;
             }
           }
@@ -107,9 +233,9 @@
       .bw-dropdown {
         @apply tw-w-[240px] bw-card;
         .dropdown-item {
-          @apply tw-flex tw-items-center tw-gap-[15px];
+          @apply tw-min-h-[38px] tw-flex tw-items-center tw-gap-[15px];
           i {
-            @apply tw-text-blue-500;
+            @apply tw-text-primary;
           }
         }
       }
@@ -120,7 +246,7 @@
           .bw-dropdown-filter-title {
             @apply tw-flex-auto  tw-text-[18px] tw-font-bold;
           }
-          .bw-dropdown-filter-close{
+          .bw-dropdown-filter-close {
             @apply -tw-mr-[10px];
           }
         }
@@ -140,171 +266,55 @@
           @apply tw-pl-[40px];
         }
       }
-
       .floating-label {
-          @apply tw-relative;
-        }
-        .floating-label label {
-          @apply tw-text-[14px] tw-px-[2px] tw-transition-all tw-duration-300 tw-ease-out tw-absolute tw-top-1/2 -tw-translate-y-1/2 tw-left-[10px] tw-bg-white;
-        }
-        .floating-label textarea + label {
-          @apply tw-top-[20%]
-        }
-        .floating-label .form-control:focus + label,
-        .floating-label .form-control:not(:placeholder-shown) + label {
-          @apply tw-top-0 tw-text-[12px];
-        }
+        @apply tw-relative;
+      }
+      .floating-label label {
+        @apply tw-text-[14px] tw-px-[2px] tw-transition-all tw-duration-300 tw-ease-out tw-absolute tw-top-1/2 -tw-translate-y-1/2 tw-left-[10px] tw-bg-white;
+      }
+      .floating-label textarea + label {
+        @apply tw-top-[20%];
+      }
+      .floating-label .form-control:focus + label,
+      .floating-label .form-control:not(:placeholder-shown) + label {
+        @apply tw-top-0 tw-text-[12px];
+      }
     </style>
   </head>
   <body>
     
 
 <div class="md:tw-pl-[70px] md:[&:has([data-layout='sidebar'].classic)]:!tw-pl-[300px] tw-transition-all tw-duration-300 tw-ease-out">
-<div data-layout="sidebar" class="
-
-    tw-fixed
-    tw-z-[999]
-    tw-left-0
-    tw-top-0
-    tw-bottom-0
-    tw-bg-gray-50
-    tw-shadow-[inset_-3px_0_3px]
-    tw-shadow-black/5
-     tw-w-[300px]
-    md:tw-w-[70px]
-    tw-transition-all
-    tw-duration-300
-    tw-ease-out
-    tw-overflow-hidden
-    tw-flex
-    tw-flex-col
-
-    [&_.metismenu_.has-arrow::after]:tw-hidden
-    [&.classic_.metismenu_.has-arrow::after]:tw-block
-    [&.compact:hover_.metismenu_.has-arrow::after]:tw-block
-    [&_.metismenu_.has-arrow::after]:tw-origin-center	
-    [&_.metismenu_.has-arrow::after]:-tw-translate-y-[50%]
-    [&_.metismenu_.has-arrow::after]:-tw-rotate-[135deg]
-    [&_.metismenu_.mm-active>.has-arrow::after]:-tw-rotate-[45deg]
-    [&>div]:tw-flex-auto
-    [&>div]:tw-flex
-    [&>div]:tw-flex-col
-    [&>div]:tw-min-h-0
-    [&_[data-layout='menu']]:tw-flex-auto
-    [&_[data-layout='menu']]:tw-min-h-0
-    [&_[data-layout='menu']_ul]:tw-list-none
-    [&_[data-layout='menu']_ul]:tw-p-0
-    [&_[data-layout='menu']>ul]:!tw-p-[23px]
-    [&_[data-layout='menu']>ul_ul]:tw-border-0
-    [&_[data-layout='menu']>ul_ul]:tw-border-l-2
-    [&_[data-layout='menu']>ul_ul]:tw-border-solid
-    [&_[data-layout='menu']>ul_ul]:tw-border-gray-300
-    [&_[data-layout='menu']>ul_ul]:tw-pl-[30px]
-    [&_[data-layout='menu']>ul_ul]:tw-ml-[12px]
-    [&_[data-layout='menu']>ul_ul]:tw-gap-[0px]
-    [&_[data-layout='menu']_ul]:tw-m-0
-    [&_[data-layout='menu']_ul]:tw-flex
-    [&_[data-layout='menu']_ul]:tw-gap-[10px]
-    [&_[data-layout='menu']_ul]:tw-flex-col
-
-    [&_[data-layout='menu']_ul_li>a]:tw-flex 
-    [&.compact:not(:hover)_[data-layout='menu']_ul_ul]:tw-hidden 
-
-
-    [&_[data-layout='menu']_ul_li>a]:tw-gap-[20px] 
-    [&_[data-layout='menu']_ul_li>a]:tw-items-center
-    [&_[data-layout='menu']_ul_li>a]:tw-text-gray-800
-    [&_[data-layout='menu']_ul_li>a]:tw-no-underline
-    [&_[data-layout='menu']_ul_li>a]:tw-h-[40px]
-    [&_[data-layout='menu']_ul_li>a]:tw-cursor-pointer
-
-
-    [&_[data-layout='menu']_ul_li>a>i]:tw-flex-none
-    [&_[data-layout='menu']_ul_li>a>i]:tw-size-[24px]
-    [&_[data-layout='menu']_ul_li>a>i]:tw-flex
-    [&_[data-layout='menu']_ul_li>a>i]:tw-items-center 
-    [&_[data-layout='menu']_ul_li>a>i]:tw-justify-center
-    [&_[data-layout='menu']_ul_li>a>i]:tw-text-[20px]
-    [&_[data-layout='menu']_ul_li>a>i]:!tw-text-gray-300
-    [&_[data-layout='menu']_ul_li>a>i:before]:tw-align-middle
-    [&_[data-layout='menu']_ul_li.active>a>i]:!tw-text-gray-800
-    [&_[data-layout='menu']_ul_li:hover>a>i]:!tw-text-gray-800
-
-    [&_[data-layout='menu']_ul_li>a>span]:tw-hidden
-    [&_[data-layout='menu']_ul_li>a>span]:tw-truncate
-    [&_[data-layout='menu']_ul_li>a>span]:tw-flex-auto
-
-
-   [&.compact:hover]:tw-w-[300px]
-   [&.classic]:tw-w-[300px]
-   [&.compact:hover]:tw-shadow-[1px_0px_10px] 
-   [&.compact:hover]:tw-shadow-black/20
-   [&_[data-layout='sidebar-toggle']]:tw-flex
-   md:[&_[data-layout='sidebar-toggle']]:tw-hidden 
- 
- 
-   
-    [&.compact:hover_[data-layout='menu']_ul_li_span]:tw-block
-    [&.classic_[data-layout='menu']_ul_li_span]:tw-block
- 
-    [&.compact_[data-layout='logo']]:tw-justify-center
-    [&.classic_[data-layout='logo']]:tw-justify-start
-    [&.compact:hover_[data-layout='logo']]:tw-justify-start
-    [&.compact_[data-layout='logo']_img:nth-child(2)]:tw-hidden
-    [&.compact_[data-layout='logo']_img:nth-child(1)]:tw-block
-    [&.classic_[data-layout='logo']_img:nth-child(1)]:tw-hidden
-    [&.classic_[data-layout='logo']_img:nth-child(2)]:tw-block
-    [&.classic_[data-layout='logo']_img:nth-child(2)]::tw-pl-[13px]
-    [&.classic_[data-layout='logo']_img:nth-child(2)]:tw-pl-[13px]
-    [&.compact:hover_[data-layout='logo']_img:nth-child(2)]:tw-block
-    [&.compact:hover_[data-layout='logo']_img:nth-child(1)]:tw-hidden
-    [&.classic_[data-layout='menu']]:tw-overflow-y-auto
-    [&.compact:hover_[data-layout='menu']]:tw-overflow-y-auto
-
-    [&.compact]:-tw-translate-x-[120%]
-    [&.classic]:-tw-translate-x-0
- 
-    md:[&.compact]:-tw-translate-x-0
-    md:[&.classic]:-tw-translate-x-0
-    ">
+<div data-layout="sidebar">
   <div>
-  
-    <a class="tw-flex tw-items-center tw-px-[10px] tw-py-[15px] tw-pb-0 tw-no-underline" data-layout="logo">
-      <img src="assets/images/logo-icon.svg" class="tw-size-[30px]" />
-      <img src="assets/images/logo.svg" class="tw-h-[30px]" />
- 
-        <button type="button" class="btn btn-icon tw-ml-auto"  data-layout="sidebar-toggle"><i class="fi fi-rr-cross-small [&:before]:tw-align-top tw-block tw-size-[20px] tw-text-[20px]"></i></button>
-    
+    <a data-layout="logo">
+      <img src="assets/images/logo.svg" alt="logo" />
+      <button type="button" class="btn btn-icon" data-layout="sidebar-toggle"><i class="fi fi-rr-cross"></i></button>
     </a>
-   
-
-   
-
-     
+    
     <div data-layout="menu">
+    <ul>
       
-    <ul >
-       
       <li class="">
         <a href="dashboard.html" class=""><i class="fi fi-sr-table-columns"></i><span>Dashboard</span></a>
         
       </li>
-       
+      
       <li class="">
-        <a href="" class=" has-arrow "><i class="fi fi-sr-bank"></i><span>Colleges</span></a>
+        <a href="" class=" has-arrow "><i class="fi fi-sr-inbox-full"></i><span>Offerings</span></a>
          
-    <ul >
-       
+    <ul>
+      
       <li class="">
         <a href="courses.html" class=""><span>Courses</span></a>
         
       </li>
-       
-      <li class="">
+      
+      <li class="active">
         <a href="colleges.html" class=""><span>Colleges</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="students.html" class=""><span>Students</span></a>
         
@@ -313,42 +323,42 @@
     </ul>
      
       </li>
-       
+      
       <li class="">
         <a href="" class=""><i class="fi fi-sr-document"></i><span>Practice Test</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="" class=""><i class="fi fi-sr-duplicate"></i><span>Test Series</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="" class=""><i class="fi fi-sr-graduation-cap"></i><span>Courses</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="" class=""><i class="fi fi-sr-unlock"></i><span>Employee Access</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="" class=" has-arrow "><i class="fi fi-sr-megaphone"></i><span>Marketing</span></a>
          
-    <ul >
-       
+    <ul>
+      
       <li class="">
         <a href="" class=""><span>Send Mails</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="" class=""><span>Notifications</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="" class=""><span>Coupons</span></a>
         
@@ -357,17 +367,17 @@
     </ul>
      
       </li>
-       
+      
       <li class="">
         <a href="" class=" has-arrow "><i class="fi fi-sr-browser"></i><span>Website</span></a>
          
-    <ul >
-       
+    <ul>
+      
       <li class="">
         <a href="" class=""><span>Pages</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="" class=""><span>Blogs</span></a>
         
@@ -376,22 +386,22 @@
     </ul>
      
       </li>
-       
+      
       <li class="">
         <a href="" class=" has-arrow "><i class="fi fi-sr-chart-pie-alt"></i><span>Reports</span></a>
          
-    <ul >
-       
+    <ul>
+      
       <li class="">
         <a href="" class=""><span>Users</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="" class=""><span>Sales</span></a>
         
       </li>
-       
+      
       <li class="">
         <a href="" class=""><span>Orders</span></a>
         
@@ -400,20 +410,18 @@
     </ul>
      
       </li>
-       
+      
       <li class="">
         <a href="" class=""><i class="fi fi-sr-headset"></i><span>Support</span></a>
         
       </li>
-       
+      
       <li class="">
-        <a href="" class=""><i class="fi fi-sr-settings-sliders"></i><span>Settings</span></a>
+        <a href="" class=""><i class="fi fi-sr-settings"></i><span>Settings</span></a>
         
       </li>
       
     </ul>
-    
-
     </div>
   </div>
 </div>
@@ -446,10 +454,7 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide"><span>Courses</span></div>
         <div class="swiper-slide"><span class="active">Colleges</span></div>
-        <div class="swiper-slide"><span>Students</span></div>
-        <!-- <div class="swiper-slide"><span>Attendence</span></div>
-        <div class="swiper-slide"><span>Representatives</span></div>
-        <div class="swiper-slide"><span>Upload Attendence</span></div> -->
+        <div class="swiper-slide"><span>Students</span></div> 
       </div>
     </div>
     <div class="menu-swiper-nav menu-swiper-nav-prev"><i class="fi fi-sr-angle-left"></i></div>
@@ -462,74 +467,9 @@
       <input class="form-control bw-form-control" placeholder="Search" />
     </div>
     <div class="tw-flex tw-items-center tw-gap-[10px]">
-      <div class="dropdown">
-        <button type="button" class="btn btn-outline-default bw-btn" data-bs-toggle="dropdown" data-bs-auto-close="outside">Filters <i class="fi fi-rr-settings-sliders"></i></button>
-        <div class="dropdown-menu dropdown-menu-end bw-dropdown bw-dropdown-filter">
-          <div class="bw-dropdown-filter-header">
-            <div class="bw-dropdown-filter-title">Filters</div>
-            <button class="bw-dropdown-filter-close btn btn-sm btn-icon" type="button"><i class="fi fi-sr-cross"></i></button>
-          </div>
-          <div class="bw-dropdown-filter-body">
-            <form>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Field One</label>
-                    <input class="form-control form-control-sm" />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Field Two</label>
-                    <input class="form-control form-control-sm" />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Field Three</label>
-                    <input class="form-control form-control-sm" />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Field Four</label>
-                    <input class="form-control form-control-sm" />
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="bw-dropdown-filter-footer">
-            <button type="button" class="btn tw-mr-auto bw-btn">Reset All</button>
-            <button type="button" class="btn btn-outline-default bw-btn">Apply</button>
-          </div>
-        </div>
-      </div>
-      <a class="btn btn-dark btn-icon" href="college-add.html"><i class="fi fi-sr-plus"></i></a>
-      <div class="dropdown">
-        <button class="btn btn-outline-default btn-icon bw-btn" type="button" data-bs-toggle="dropdown"><i class="fi fi-br-menu-dots-vertical"></i></button>
-        <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
-          <li>
-            <a class="dropdown-item" href="#"><i class="fi fi-rr-home"></i> Option One</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"><i class="fi fi-rr-mobile"></i> Option Two</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"><i class="fi fi-rr-envelope"></i> Option Three</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"><i class="fi fi-rr-grid"></i> Option Four</a>
-          </li>
-          <li><hr class="dropdown-divider" /></li>
-          <li>
-            <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> Option Five</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"><i class="fi fi-rr-graduation-cap"></i> Option Six</a>
-          </li>
-        </ul>
-      </div>
+      <button type="button" class="btn btn-outline-primary bw-btn" data-bs-toggle="modal" data-bs-target="#upload-student-upload">Upload Students <i class="fi fi-rr-upload"></i></button>
+      <a class="btn btn-primary btn-icon" href="college-add.html"><i class="fi fi-sr-plus"></i></a>
+ 
     </div>
 
   </div>
@@ -541,8 +481,7 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Head</th>
-          <th>Code</th>
-          <th>Url</th>
+          <th>Code</th> 
           <th>Status</th>
           <th>Actions</th>
         </tr>
@@ -550,25 +489,41 @@
       <tbody>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>Testing College 2025</td>
+          <td>pavanjaiswal5@gmail.com</td>
+          <td>8142123938</td>
+          <td>Samyukta Mam</td>
+          <td></td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -576,25 +531,41 @@
         </tr>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>LORDS Institute of Engineering and Technology - 2024</td>
+          <td>saisuman@lords.ac.in</td>
+          <td>8885852485</td>
+          <td>R.Suman</td>
+          <td>LORDS</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -602,25 +573,41 @@
         </tr>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>R.B.V.R.R.W.C - 2025</td>
+          <td>rbvrrplacement@gmail.com</td>
+          <td>8142123938</td>
+          <td>Samyukta Mam</td>
+          <td>RBVRRWC</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -628,25 +615,41 @@
         </tr>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>Testing College 2024</td>
+          <td>pavanjaiswal5@gmail.com</td>
+          <td>8142123938</td>
+          <td>TESTING</td>
+          <td>TEST</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -654,25 +657,41 @@
         </tr>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>St.Francis 2024</td>
+          <td>placements@sfc.ac.in</td>
+          <td>9912151346</td>
+          <td>Marie Thomas</td>
+          <td>SFC</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -680,25 +699,41 @@
         </tr>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>Terna Engineering College ( Mumbai) 2025</td>
+          <td>gauravdeshmukh@ternaengg.ac.in</td>
+          <td>8275207535</td>
+          <td>Gaurav Deshmukh</td>
+          <td>TEC</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -706,25 +741,41 @@
         </tr>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>Workshop - 1</td>
+          <td>pavanjaiswal5@gmail.com</td>
+          <td>8142123938</td>
+          <td>Pavan</td>
+          <td>workshop 1</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -732,25 +783,41 @@
         </tr>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>Terna Engineering College ( Mumbai) 2024</td>
+          <td>gauravdeshmukh@ternaengg.ac.in</td>
+          <td>8275207535</td>
+          <td>Gaurav Deshmukh</td>
+          <td>TEC</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -758,25 +825,41 @@
         </tr>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>St.Francis 2023</td>
+          <td>placements@sfc.ac.in</td>
+          <td>9912151346</td>
+          <td>Marie</td>
+          <td>SFC</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -784,25 +867,419 @@
         </tr>
         
         <tr>
-          <td>United Nations University, Delhi</td>
-          <td>unu@gmail.com</td>
-          <td>9676969175</td>
-          <td>John Doe</td>
-          <td>UNUD</td>
-          <td>View</td>
-          <td>Status</td>
+          <td>MJCET - 2023 batch</td>
+          <td>farooqbasha@mjcollege.ac.in</td>
+          <td>9441090408</td>
+          <td>FAROOQ BASHA</td>
+          <td>MJCET</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-eye"></i> View</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-pencil"></i>Edit</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-rr-trash"></i>Delete</a>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Terna Engineering College ( Mumbai) 2023</td>
+          <td>gauravdeshmukh@ternaengg.ac.in</td>
+          <td>8275207535</td>
+          <td>Gaurav Deshmukh</td>
+          <td>TEC</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Loyola Academy 2023</td>
+          <td>loyolaplacements@gmail.com</td>
+          <td>8977012587</td>
+          <td>Deepthi</td>
+          <td>LOYOLA 2023</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Chaitanya Bharati Institute of Technology</td>
+          <td>placements@cbit.ac.in</td>
+          <td>9441044722</td>
+          <td>Pratima Mam</td>
+          <td>CBIT</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>St.Francis 2022</td>
+          <td>placements@sfc.ac.in</td>
+          <td>9912151346</td>
+          <td>Marie</td>
+          <td>SFC</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Mahatma Gandhi Institute of Technology</td>
+          <td>placements@mgit.ac.in</td>
+          <td>9618274392</td>
+          <td>MGIT</td>
+          <td>MGIT</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Mahaveer Engineering College</td>
+          <td>misttpo@gmail.com</td>
+          <td>9121544906</td>
+          <td>Pramoda</td>
+          <td>MAHAVEER</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Muffakham Jah College of Engineering and Technology (MJCET)</td>
+          <td>placements@mjcollege.ac.in</td>
+          <td>9866576030</td>
+          <td>MJCET Rajani</td>
+          <td>MJCET</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>St.Peter&#39;s Engineering college</td>
+          <td>training@stpetershyd.com</td>
+          <td>9652601484</td>
+          <td>St.Peter&#39;s</td>
+          <td>SPEC(BK)</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-primary">Active</span>
+            
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Loyola Academy 2022</td>
+          <td>pavanjaiswal5@gmail.com</td>
+          <td>8142123938</td>
+          <td>LOYALA ACADEMY</td>
+          <td>Loyola 2022</td> 
+          <td>
+            
+            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                </li>
+                <li>
+                  <span class="dropdown-item">
+                    <i class="fi fi-sr-calendar"></i>
+                    <div>Attendence</div>
+                    <div class="form-check form-switch tw-ml-auto">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <label class="form-check-label" for="switchCheckDefault"></label>
+                    </div>
+                  </span>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
                 </li>
               </ul>
             </div>
@@ -837,15 +1314,44 @@
     </nav>
   </div>
 </div>
+<div class="modal fade bw-modal" id="upload-student-upload">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Upload Student List</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <label class="bw-upload">
+        <input type="file" />
+        <div>
+          <strong>Upload</strong>
+          <p>Click or Drag & Drop your file here.</p>
+        </div>
+      </label>
+      <ul class="list-group tw-mt-[10px]">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          students.xls
+          <button type="button" class="btn btn-sm btn-icon"><i class="fi fi-sr-trash"></i></button>
+        </li>
+       
+      </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Upload</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   </div>
 </div>
 </div>
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/metismenujs"></script>
     <script src="assets/js/scripts.js"></script>
     
