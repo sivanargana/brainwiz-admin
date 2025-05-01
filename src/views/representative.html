@@ -1,0 +1,135 @@
+  {% extends 'layouts/admin-layout.html' %} {% block adminLayout %}
+  <div>
+    <div class="menu-swiper">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><a href="attendance.html">Attendence</a></div>
+          <div class="swiper-slide"><a href="#" class="active">Representatives</a></div>
+        </div>
+      </div>
+      <div class="menu-swiper-nav-prev"><i class="fi fi-sr-angle-left"></i></div>
+      <div class="menu-swiper-nav-next"><i class="fi fi-sr-angle-right"></i></div>
+    </div>
+    <div class="tw-flex-col tw-flex md:tw-flex-row md:tw-items-center tw-mb-[20px] tw-gap-[10px]">
+      <div class="tw-text-[20px] tw-font-bold tw-flex-auto">Representatives</div>
+      <div class="bw-search">
+        <i class="fi fi-rr-search"></i>
+        <input class="form-control bw-form-control" placeholder="Search" />
+      </div>
+      <div class="tw-flex tw-items-center tw-gap-[10px]">
+        <a class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#upload-student-upload"><i class="fi fi-sr-plus"></i></a>
+      </div>
+    </div>
+    <div class="table-responsive bw-card">
+      <table class="table table-hover bw-table tw-m-0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>College</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in g.app.representative %}
+          <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.college}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phone}}</td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
+                <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="tw-flex-col tw-flex md:tw-flex-row tw-items-center tw-gap-[10px] tw-mt-[10px]">
+      <div class="tw-flex tw-items-center tw-gap-[10px] tw-mr-auto">
+        <select class="form-select form-select-sm">
+          <option>10</option>
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+        <span class="tw-whitespace-nowrap">Showing 1 to 1 of 1 entries</span>
+      </div>
+      <nav>
+        <ul class="pagination bw-card tw-m-0">
+          <li class="page-item">
+            <a class="page-link" href="#"><i class="fi fi-br-angle-left"></i></a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#"><i class="fi fi-br-angle-right"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="modal fade bw-modal" id="upload-student-upload">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Add Representative</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div>
+                  <label class="form-label">College</label>
+                  <select class="form-select">
+                    {% for item in g.app.colleges %}
+                    <option>{{item.college}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div>
+                  <label class="form-label">Email</label>
+                  <input type="text" class="form-control bw-form-control" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div>
+                  <label class="form-label">Phone</label>
+                  <input type="text" class="form-control bw-form-control" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div>
+                  <label class="form-label">Password</label>
+                  <input type="text" class="form-control bw-form-control" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

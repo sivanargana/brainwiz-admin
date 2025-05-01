@@ -9,17 +9,14 @@ data = {
             "label": "Offerings",
             "icon": "fi fi-sr-inbox-full",
             "children": [
-                {
-                    "label": "Courses",
-                    "endpoint": "courses.html"
-                },
+                 
                 {
                     "label": "Colleges",
                     "endpoint": "colleges.html"
                 },
                 {
-                    "label": "Students",
-                    "endpoint": "students.html"
+                    "label": "Attendance",
+                    "endpoint": "attendance.html"
                 },
             ]
         },
@@ -167,12 +164,7 @@ data = {
             "price": "7000.00",
             "image": "python_course.jpg"
         }
-
-
-
-
-
-    ],
+          ],
     "tests": [
         {
             "category": "Logical Reasoning",
@@ -251,7 +243,192 @@ data = {
     {"college": "Muffakham Jah College of Engineering and Technology (MJCET)", "email": "placements@mjcollege.ac.in", "phone": "9866576030", "poc": "MJCET Rajani", "code": "MJCET", "status": False},
     {"college": "St.Peter's Engineering college", "email": "training@stpetershyd.com", "phone": "9652601484", "poc": "St.Peter's", "code": "SPEC(BK)", "status": True},
     {"college": "Loyola Academy 2022", "email": "pavanjaiswal5@gmail.com", "phone": "8142123938", "poc": "LOYALA ACADEMY", "code": "Loyola 2022", "status": False},
+],
+"attendance": [
+    {
+        "name": "mohammed habeebuddin",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "electronics and communication engineering (ece)",
+        "login_time": "20-11-2024 04:03:33",
+        "logout_time": "2024-11-20 16:03:33",
+        "session": "session 1"
+    },
+    {
+        "name": "fahadh md",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 04:00:47",
+        "logout_time": "2024-11-20 16:00:47",
+        "session": "session 1"
+    },
+    {
+        "name": "mohd furkhan",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "electronics and communication engineering (ece)",
+        "login_time": "20-11-2024 04:00:07",
+        "logout_time": "2024-11-20 16:00:07",
+        "session": "session 1"
+    },
+    {
+        "name": "waseem shaik",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:59:59",
+        "logout_time": "2024-11-20 15:59:59",
+        "session": "session 1"
+    },
+    {
+        "name": "syed hannan mohammed razvi",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:59:37",
+        "logout_time": "2024-11-20 15:59:37",
+        "session": "session 1"
+    },
+    {
+        "name": "ismail fazal ismail",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:59:30",
+        "logout_time": "2024-11-20 15:59:30",
+        "session": "session 1"
+    },
+    {
+        "name": "mohammed adeeb ur rahman adeeb",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:58:56",
+        "logout_time": "2024-11-20 15:58:56",
+        "session": "session 1"
+    },
+    {
+        "name": "md bilal",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:58:51",
+        "logout_time": "2024-11-20 15:58:51",
+        "session": "session 1"
+    },
+    {
+        "name": "sameer syed",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:58:45",
+        "logout_time": "2024-11-20 15:58:45",
+        "session": "session 1"
+    },
+    {
+        "name": "mirza saifullah baig mirza",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "electronics and communication engineering (ece)",
+        "login_time": "20-11-2024 03:58:19",
+        "logout_time": "2024-11-20 15:58:19",
+        "session": "session 1"
+    },
+    {
+        "name": "lakshya tiwari",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "electronics and communication engineering (ece)",
+        "login_time": "20-11-2024 03:58:11",
+        "logout_time": "2024-11-20 15:58:11",
+        "session": "session 1"
+    },
+    {
+        "name": "safwan shiraz rayyan shiraz",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "electronics and communication engineering (ece)",
+        "login_time": "20-11-2024 03:58:08",
+        "logout_time": "2024-11-20 15:58:08",
+        "session": "session 1"
+    },
+    {
+        "name": "bushra bushra",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:58:05",
+        "logout_time": "2024-11-20 15:58:05",
+        "session": "session 1"
+    },
+    {
+        "name": "ayesha siddiqua",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:57:55",
+        "logout_time": "2024-11-20 15:57:55",
+        "session": "session 1"
+    },
+    {
+        "name": "farwa banu",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:57:51",
+        "logout_time": "2024-11-20 15:57:51",
+        "session": "session 1"
+    },
+    {
+        "name": "mohd musharaf khan",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "electronics and communication engineering (ece)",
+        "login_time": "20-11-2024 03:57:46",
+        "logout_time": "2024-11-20 15:57:46",
+        "session": "session 1"
+    },
+    {
+        "name": "syed abdul razzaq",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:57:32",
+        "logout_time": "2024-11-20 15:57:32",
+        "session": "session 1"
+    },
+    {
+        "name": "shaik ayaan ahmed",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "information technology (it)",
+        "login_time": "20-11-2024 03:57:27",
+        "logout_time": "2024-11-20 15:57:27",
+        "session": "session 1"
+    },
+    {
+        "name": "ibrahim hassan",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "electronics and communication engineering (ece)",
+        "login_time": "20-11-2024 03:57:24",
+        "logout_time": "2024-11-20 15:57:24",
+        "session": "session 1"
+    },
+    {
+        "name": "mohammad junaid mohammad",
+        "college": "lords institute of engineering and technology - 2024",
+        "department": "electronics and communication engineering (ece)",
+        "login_time": "20-11-2024 03:57:05",
+        "logout_time": "2024-11-20 15:57:05",
+        "session": "session 1"
+    }
+],
+"representative":[
+    {"college": "testing college 2025", "name": "pavan", "email": "pavanjaiswal5@gmail.com", "phone": "8184801608"},
+    {"college": "lords institute of engineering and technology - 2024", "name": "harshit", "email": "programming966051@gmail.com", "phone": "9660518977"},
+    {"college": "lords institute of engineering and technology - 2024", "name": "sai suman", "email": "saisuman@lords.ac.in", "phone": "8885852485"},
+    {"college": "r.b.v.r.r.w.c - 2025", "name": "thrisha", "email": "omkarthrisha444@gmail.com", "phone": "9390048634"},
+    {"college": "r.b.v.r.r.w.c - 2025", "name": "gouthami", "email": "kawlaskargouthami@gmail.com", "phone": "9346489669"},
+    {"college": "st.francis 2024", "name": "meghana", "email": "121323082055@sfc.ac.in", "phone": "7801061005"},
+    {"college": "st.francis 2024", "name": "lakshmi asritha", "email": "121322086010@sfc.ac.in", "phone": "8341098498"},
+    {"college": "st.francis 2024", "name": "vibha", "email": "121322007018@sfc.ac.in", "phone": "8919600094"},
+    {"college": "st.francis 2024", "name": "akshitha", "email": "121322082004@sfc.ac.in", "phone": "8977901018"},
+    {"college": "st.francis 2024", "name": "gurpreet", "email": "121322084024@sfc.ac.in", "phone": "6302721352"},
+    {"college": "st.francis 2024", "name": "tejashree", "email": "121323044032@sfc.ac.in", "phone": "8121503403"},
+    {"college": "st.francis 2024", "name": "sai manisha", "email": "121323083042@sfc.ac.in", "phone": "7386146578"},
+    {"college": "st.francis 2024", "name": "navya sree", "email": "121322008026@sfc.ac.in", "phone": "8978593636"},
+    {"college": "st.francis 2024", "name": "pavan", "email": "pavanjaiswal55@gmail.com", "phone": "8886233228"},
+    {"college": "terna engineering college ( mumbai) 2025", "name": "omkar", "email": "omkark2223@ternaengg.ac.in", "phone": "9987703661"},
+    {"college": "terna engineering college ( mumbai) 2025", "name": "pavan", "email": "phpguidance@gmail.com", "phone": "8142123938"},
+    {"college": "terna engineering college ( mumbai) 2025", "name": "renuka", "email": "renukamore2223@ternaengg.ac.in", "phone": "9324932157"},
+    {"college": "terna engineering college ( mumbai) 2025", "name": "tanmayi", "email": "kulkarnitanmayi2122@ternaengg.ac.in", "phone": "8652677801"},
+    {"college": "terna engineering college ( mumbai) 2025", "name": "kewal", "email": "kewalrane2223@ternaengg.ac.in", "phone": "7020118560"},
+    {"college": "terna engineering college ( mumbai) 2025", "name": "sarthak", "email": "sarthakpawar2223@ternaengg.ac.in", "phone": "9870308347"}
 ]
+
 
 
     

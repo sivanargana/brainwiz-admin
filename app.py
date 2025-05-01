@@ -21,7 +21,11 @@ def index():
 
 @app.route('/colleges.html')
 def colleges():
-    return render_template("/colleges.html")
+    return render_template("/colleges.html")\
+    
+@app.route('/courses.html')
+def courses():
+    return render_template("/courses.html")
 
 @app.route('/college-add.html')
 def collegeadd():
@@ -31,7 +35,13 @@ def collegeadd():
 def students():
     return render_template("/students.html")
 
+@app.route('/attendance.html')
+def attendance():
+    return render_template("/attendance.html")
 
+@app.route('/representative.html')
+def representative():
+    return render_template("/representative.html")
 
 @app.route('/dashboard.html')
 def dashboard():

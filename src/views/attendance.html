@@ -1,24 +1,23 @@
 {% extends 'layouts/admin-layout.html' %} {% block adminLayout %}
 <div>
-  <div class="menu-swiper" >
+  <div class="menu-swiper">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><a href="courses.html">Courses</a></div>
-        <div class="swiper-slide"><a href="colleges.html">Colleges</a></div>
-        <div class="swiper-slide"><a href="#" class="active">Students</a></div> 
+        <div class="swiper-slide"><a href="#" class="active">Attendence</a></div>
+        <div class="swiper-slide"><a href="representative.html">Representatives</a></div> 
       </div>
     </div>
     <div class="menu-swiper-nav-prev"><i class="fi fi-sr-angle-left"></i></div>
     <div class="menu-swiper-nav-next"><i class="fi fi-sr-angle-right"></i></div>
   </div>
   <div class="tw-flex-col tw-flex md:tw-flex-row md:tw-items-center tw-mb-[20px] tw-gap-[10px]">
-    <div class="tw-text-[20px] tw-font-bold tw-flex-auto">Students</div>
+    <div class="tw-text-[20px] tw-font-bold tw-flex-auto">Attendence</div>
     <div class="bw-search">
       <i class="fi fi-rr-search"></i>
       <input class="form-control bw-form-control" placeholder="Search" />
     </div>
     <div class="tw-flex tw-items-center tw-gap-[10px]">
-      <button type="button" class="btn btn-outline-primary bw-btn">Download <i class="fi fi-rr-download"></i></button>
+      
       <div class="dropdown">
         <button type="button" class="btn btn-outline-default bw-btn" data-bs-toggle="dropdown" data-bs-auto-close="outside">Filters <i class="fi fi-rr-settings-sliders"></i></button>
         <div class="dropdown-menu dropdown-menu-end bw-dropdown bw-dropdown-filter">
@@ -53,10 +52,8 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="form-label">Branch</label>
-                    <select class="form-select form-select-sm">
-                      <option>Select</option>
-                    </select>
+                    <label class="form-label">Date</label>
+                    <input class="form-control form-control-sm" />
                   </div>
                 </div>
               </div>
@@ -68,7 +65,9 @@
           </div>
         </div>
       </div>
-      <a class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#upload-student-upload"><i class="fi fi-sr-plus"></i></a>
+      <button type="button" class="btn btn-outline-primary btn-icon"><i class="fi fi-rr-download"></i></button>
+      <button type="button" class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#upload-modal"><i class="fi fi-rr-upload"></i></button>
+  
  
     </div>
 
@@ -79,47 +78,24 @@
         <tr>
           <th>Name</th>
           <th>College</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Branch</th> 
-          <th>QR</th>
-          <th>Actions</th>
+          <th>Department</th>
+          <th>Login</th>
+          <th>Logout</th>
+          <th>Session</th>
+          
         </tr>
       </thead>
       <tbody>
-        {% for item in g.app.students %}
+        {% for item in g.app.attendance %}
         <tr>
           <td>{{item.name}}</td>
           <td>{{item.college}}</td>
-          <td>{{item.email}}</td>
-          <td>{{item.phone}}</td>
-          <td>{{item.branch}}</td>
-          <td>
-            <div class="dropdown">
-            <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="dropdown"><i class="fi fi-sr-qrcode"></i></button>
-            <div class="dropdown-menu dropdown-menu-end bw-dropdown tw-p-[20px]">
-              <img src='https://demo.gobrainwiz.in/admin/assets/images/qr.png' class="tw-w-full tw-object-contain" />
-            </div>
-            </div>
-          </td> 
-          
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
-              <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
-                </li>
-                
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-trash"></i>Delete</a>
-                </li>
-              </ul>
-            </div>
-          </td>
+          <td>{{item.department}}</td>
+          <td>{{item.login_time}}</td>
+          <td>{{item.logout_time}}</td>
+          <td>{{item.session}}</td>
+     
+       
         </tr>
         {% endfor %}
       </tbody>
@@ -150,38 +126,68 @@
     </nav>
   </div>
 </div>
-<div class="modal fade bw-modal" id="upload-student-upload">
+<div class="modal fade bw-modal" id="upload-modal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5">Upload Student List</h1>
+        <h1 class="modal-title fs-5">Upload Attendance</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <div class="tw-mb-[20px]">
-        <label class="form-label">College</label>
-        <select class="form-select">
-          {% for item in g.app.colleges %}
-          <option>{{item.college}}</option> 
-          {% endfor %}
-          </select>
-      </div>
-      <label class="bw-upload">
-        <input type="file" />
-        <div>
-          <strong>Upload</strong>
-          <p>Click or Drag & Drop your file here.</p>
-        </div>
-      </label>
-      <ul class="list-group tw-mt-[10px]">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          students.xls
-          <button type="button" class="btn btn-sm btn-icon"><i class="fi fi-sr-trash"></i></button>
-        </li>
-       
-      </ul>
+
+        <form action="">
+          <div class="row g-3">
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">College</label>
+                <select class="form-select">
+                  {% for item in g.app.colleges %}
+                  <option>{{item.college}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">Representative</label>
+                <select class="form-select">
+                  {% for item in g.app.representative %}
+                  <option>{{item.name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">Date</label>
+                <input type="date" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label class="bw-upload">
+                <input type="file" />
+                <div>
+                  <strong>Upload</strong>
+                  <p>Click or Drag & Drop your file here.</p>
+                </div>
+              </label>
+              <ul class="list-group tw-mt-[10px]">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  students.xls
+                  <button type="button" class="btn btn-sm btn-icon"><i class="fi fi-sr-trash"></i></button>
+                </li>
+               
+              </ul>
+            </div>
+          </div>
+        </form>
+
+
+     
       </div>
       <div class="modal-footer">
+        <a class="btn btn-link tw-mr-auto">Sample Csv File</a>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary">Upload</button>
       </div>
