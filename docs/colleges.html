@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenujs/dist/metismenujs.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,43 +33,51 @@
     </script>
     <style type="text/tailwindcss">
       @layer components {
-        .menu-swiper{
-          @apply  tw-relative tw-mb-[20px] tw-px-[10px] bw-card;
-          .swiper{
-            .swiper-slide{
+        .badge {
+          &.text-bg-primary {
+            @apply !tw-bg-blue-400;
+          }
+          &.text-bg-danger {
+            @apply !tw-bg-red-400;
+          }
+        }
+
+        .menu-swiper {
+          @apply tw-relative tw-mb-[20px] tw-px-[10px] bw-card;
+          .swiper {
+            .swiper-slide {
               @apply tw-w-auto;
-              &:not(:last-child){
+              &:not(:last-child) {
                 @apply tw-border-0 tw-border-r tw-border-solid tw-border-gray-200/70;
               }
-              a{
+              a {
                 @apply tw-flex tw-items-center tw-justify-center tw-px-[20px] tw-h-[50px] tw-no-underline tw-text-gray-800;
-                &::before{
+                &::before {
                   @apply tw-content-[''] tw-absolute tw-bottom-0 tw-left-1/2 tw-w-[50px] tw-h-[3px] tw-bg-gray-800 tw-rounded-full -tw-translate-x-1/2 tw-hidden;
                 }
-                &:hover{
+                &:hover {
                   @apply tw-bg-gray-50 tw-cursor-pointer;
                 }
-                &.active{
-                  &::before{
+                &.active {
+                  &::before {
                     @apply tw-block;
                   }
                 }
               }
             }
           }
-          [class*='menu-swiper-nav']{
+          [class*="menu-swiper-nav"] {
             @apply tw-absolute tw-z-[5] tw-top-1/2 -tw-translate-y-1/2 tw-size-[30px] tw-rounded-full tw-flex tw-items-center tw-justify-center bw-card;
-            &.menu-swiper-nav-prev{
+            &.menu-swiper-nav-prev {
               @apply -tw-left-[15px];
             }
-            &.menu-swiper-nav-next{
+            &.menu-swiper-nav-next {
               @apply -tw-right-[15px];
             }
-            &.swiper-button-disabled{
+            &.swiper-button-disabled {
               @apply tw-hidden;
             }
           }
-         
         }
         [data-layout="sidebar"] {
           @apply tw-fixed tw-z-[999] tw-left-0 tw-top-0 tw-bottom-0 tw-bg-gray-50 tw-shadow-[inset_-3px_0_3px] tw-shadow-black/5  tw-w-[300px] md:tw-w-[70px] tw-transition-all tw-duration-300 tw-ease-out tw-overflow-hidden tw-flex tw-flex-col;
@@ -77,9 +87,9 @@
           }
           [data-layout="logo"] {
             @apply tw-flex tw-items-center tw-px-[23px] tw-py-[15px] tw-pb-0 tw-no-underline;
-            img{
+            img {
               @apply tw-h-[30px] tw-transition-all tw-duration-300 tw-ease-out;
-              clip-path: polygon(0% 0%,18% 0%,18% 100%,0% 100%);
+              clip-path: polygon(0% 0%, 18% 0%, 18% 100%, 0% 100%);
             }
             [data-layout="sidebar-toggle"] {
               @apply tw-ml-auto tw-flex md:tw-hidden;
@@ -122,14 +132,17 @@
                     @apply tw-hidden tw-truncate tw-flex-auto;
                   }
                 }
-                &:hover,&.active,&.mm-active,&:has(ul>li.active){
-                    > a{
-                      i{
-                        @apply tw-opacity-100;
-                      }
-                      @apply tw-text-primary;
+                &:hover,
+                &.active,
+                &.mm-active,
+                &:has(ul > li.active) {
+                  > a {
+                    i {
+                      @apply tw-opacity-100;
                     }
+                    @apply tw-text-primary;
                   }
+                }
               }
               ul {
                 @apply tw-border-0 tw-border-l-2 tw-border-solid tw-border-gray-300 tw-pl-[30px] tw-ml-[12px] tw-gap-[0px];
@@ -138,7 +151,7 @@
           }
           &.compact {
             @apply -tw-translate-x-[120%] md:-tw-translate-x-0;
-           
+
             &:hover {
               @apply tw-shadow-[1px_0px_10px] tw-shadow-black/20;
             }
@@ -150,8 +163,8 @@
           &.classic {
             @apply tw-w-[300px];
             [data-layout="logo"] {
-              img{
-                 clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);
+              img {
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
               }
             }
             [data-layout="menu"] {
@@ -159,7 +172,7 @@
               > ul {
                 &.metismenu {
                   li {
-                   > a {
+                    > a {
                       &.has-arrow {
                         &:after {
                           @apply tw-block;
@@ -182,7 +195,9 @@
           }
         }
         .bw-modal {
-          /* .modal-header, */
+          .modal-header {
+            @apply tw-bg-gray-50;
+          }
           .modal-footer {
             @apply tw-border-0;
           }
@@ -488,7 +503,7 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide"><a href="courses.html">Courses</a></div>
         <div class="swiper-slide"><a href="#" class="active">Colleges</a></div>
-        <div class="swiper-slide"><a href="students.html">Students</a></div> 
+        <div class="swiper-slide"><a href="students.html">Students</a></div>
       </div>
     </div>
     <div class="menu-swiper-nav-prev"><i class="fi fi-sr-angle-left"></i></div>
@@ -501,20 +516,19 @@
       <input class="form-control bw-form-control" placeholder="Search" />
     </div>
     <div class="tw-flex tw-items-center tw-gap-[10px]">
-      <button type="button" class="btn btn-outline-primary bw-btn" data-bs-toggle="modal" data-bs-target="#upload-student-upload">Upload Students <i class="fi fi-rr-upload"></i></button>
-      <a class="btn btn-primary btn-icon" href="college-add.html"><i class="fi fi-sr-plus"></i></a>
- 
+      <button type="button" class="btn btn-outline-primary bw-btn" data-bs-toggle="modal" data-bs-target="#upload-student">Upload Students <i class="fi fi-rr-upload"></i></button>
+      <button type="button" class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#add-college"><i class="fi fi-sr-plus"></i></button>
     </div>
-
   </div>
   <div class="table-responsive bw-card">
     <table class="table table-hover bw-table tw-m-0">
       <thead>
         <tr>
+          <th>S.No</th>
           <th>Name</th>
           <th>Email</th>
           <th>Phone</th>
-          <th>Head</th> 
+          <th>Head</th>
           <th>Status</th>
           <th>Actions</th>
         </tr>
@@ -522,10 +536,11 @@
       <tbody>
         
         <tr>
+          <td>1</td>
           <td>Testing College 2025</td>
           <td>pavanjaiswal5@gmail.com</td>
           <td>8142123938</td>
-          <td>Samyukta Mam</td> 
+          <td>Samyukta Mam</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -536,20 +551,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -563,13 +578,14 @@
         </tr>
         
         <tr>
+          <td>2</td>
           <td>LORDS Institute of Engineering and Technology - 2024</td>
           <td>saisuman@lords.ac.in</td>
           <td>8885852485</td>
-          <td>R.Suman</td> 
+          <td>R.Suman</td>
           <td>
             
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            <span class="badge rounded-pill text-bg-danger">Inactive</span>
             
           </td>
           <td>
@@ -577,20 +593,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -604,10 +620,11 @@
         </tr>
         
         <tr>
+          <td>3</td>
           <td>R.B.V.R.R.W.C - 2025</td>
           <td>rbvrrplacement@gmail.com</td>
           <td>8142123938</td>
-          <td>Samyukta Mam</td> 
+          <td>Samyukta Mam</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -618,20 +635,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -645,13 +662,14 @@
         </tr>
         
         <tr>
+          <td>4</td>
           <td>Testing College 2024</td>
           <td>pavanjaiswal5@gmail.com</td>
           <td>8142123938</td>
-          <td>TESTING</td> 
+          <td>TESTING</td>
           <td>
             
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            <span class="badge rounded-pill text-bg-danger">Inactive</span>
             
           </td>
           <td>
@@ -659,20 +677,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -686,10 +704,11 @@
         </tr>
         
         <tr>
+          <td>5</td>
           <td>St.Francis 2024</td>
           <td>placements@sfc.ac.in</td>
           <td>9912151346</td>
-          <td>Marie Thomas</td> 
+          <td>Marie Thomas</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -700,20 +719,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -727,13 +746,14 @@
         </tr>
         
         <tr>
+          <td>6</td>
           <td>Terna Engineering College ( Mumbai) 2025</td>
           <td>gauravdeshmukh@ternaengg.ac.in</td>
           <td>8275207535</td>
-          <td>Gaurav Deshmukh</td> 
+          <td>Gaurav Deshmukh</td>
           <td>
             
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            <span class="badge rounded-pill text-bg-danger">Inactive</span>
             
           </td>
           <td>
@@ -741,20 +761,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -768,10 +788,11 @@
         </tr>
         
         <tr>
+          <td>7</td>
           <td>Workshop - 1</td>
           <td>pavanjaiswal5@gmail.com</td>
           <td>8142123938</td>
-          <td>Pavan</td> 
+          <td>Pavan</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -782,20 +803,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -809,10 +830,11 @@
         </tr>
         
         <tr>
+          <td>8</td>
           <td>Terna Engineering College ( Mumbai) 2024</td>
           <td>gauravdeshmukh@ternaengg.ac.in</td>
           <td>8275207535</td>
-          <td>Gaurav Deshmukh</td> 
+          <td>Gaurav Deshmukh</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -823,20 +845,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -850,13 +872,14 @@
         </tr>
         
         <tr>
+          <td>9</td>
           <td>St.Francis 2023</td>
           <td>placements@sfc.ac.in</td>
           <td>9912151346</td>
-          <td>Marie</td> 
+          <td>Marie</td>
           <td>
             
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            <span class="badge rounded-pill text-bg-danger">Inactive</span>
             
           </td>
           <td>
@@ -864,20 +887,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -891,10 +914,11 @@
         </tr>
         
         <tr>
+          <td>10</td>
           <td>MJCET - 2023 batch</td>
           <td>farooqbasha@mjcollege.ac.in</td>
           <td>9441090408</td>
-          <td>FAROOQ BASHA</td> 
+          <td>FAROOQ BASHA</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -905,20 +929,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -932,13 +956,14 @@
         </tr>
         
         <tr>
+          <td>11</td>
           <td>Terna Engineering College ( Mumbai) 2023</td>
           <td>gauravdeshmukh@ternaengg.ac.in</td>
           <td>8275207535</td>
-          <td>Gaurav Deshmukh</td> 
+          <td>Gaurav Deshmukh</td>
           <td>
             
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            <span class="badge rounded-pill text-bg-danger">Inactive</span>
             
           </td>
           <td>
@@ -946,20 +971,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -973,10 +998,11 @@
         </tr>
         
         <tr>
+          <td>12</td>
           <td>Loyola Academy 2023</td>
           <td>loyolaplacements@gmail.com</td>
           <td>8977012587</td>
-          <td>Deepthi</td> 
+          <td>Deepthi</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -987,20 +1013,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -1014,13 +1040,14 @@
         </tr>
         
         <tr>
+          <td>13</td>
           <td>Chaitanya Bharati Institute of Technology</td>
           <td>placements@cbit.ac.in</td>
           <td>9441044722</td>
-          <td>Pratima Mam</td> 
+          <td>Pratima Mam</td>
           <td>
             
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            <span class="badge rounded-pill text-bg-danger">Inactive</span>
             
           </td>
           <td>
@@ -1028,20 +1055,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -1055,10 +1082,11 @@
         </tr>
         
         <tr>
+          <td>14</td>
           <td>St.Francis 2022</td>
           <td>placements@sfc.ac.in</td>
           <td>9912151346</td>
-          <td>Marie</td> 
+          <td>Marie</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -1069,20 +1097,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -1096,13 +1124,14 @@
         </tr>
         
         <tr>
+          <td>15</td>
           <td>Mahatma Gandhi Institute of Technology</td>
           <td>placements@mgit.ac.in</td>
           <td>9618274392</td>
-          <td>MGIT</td> 
+          <td>MGIT</td>
           <td>
             
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            <span class="badge rounded-pill text-bg-danger">Inactive</span>
             
           </td>
           <td>
@@ -1110,20 +1139,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -1137,10 +1166,11 @@
         </tr>
         
         <tr>
+          <td>16</td>
           <td>Mahaveer Engineering College</td>
           <td>misttpo@gmail.com</td>
           <td>9121544906</td>
-          <td>Pramoda</td> 
+          <td>Pramoda</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -1151,20 +1181,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -1178,13 +1208,14 @@
         </tr>
         
         <tr>
+          <td>17</td>
           <td>Muffakham Jah College of Engineering and Technology (MJCET)</td>
           <td>placements@mjcollege.ac.in</td>
           <td>9866576030</td>
-          <td>MJCET Rajani</td> 
+          <td>MJCET Rajani</td>
           <td>
             
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            <span class="badge rounded-pill text-bg-danger">Inactive</span>
             
           </td>
           <td>
@@ -1192,20 +1223,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -1219,10 +1250,11 @@
         </tr>
         
         <tr>
+          <td>18</td>
           <td>St.Peter&#39;s Engineering college</td>
           <td>training@stpetershyd.com</td>
           <td>9652601484</td>
-          <td>St.Peter&#39;s</td> 
+          <td>St.Peter&#39;s</td>
           <td>
             
             <span class="badge rounded-pill text-bg-primary">Active</span>
@@ -1233,20 +1265,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -1260,13 +1292,14 @@
         </tr>
         
         <tr>
+          <td>19</td>
           <td>Loyola Academy 2022</td>
           <td>pavanjaiswal5@gmail.com</td>
           <td>8142123938</td>
-          <td>LOYALA ACADEMY</td> 
+          <td>LOYALA ACADEMY</td>
           <td>
             
-            <span class="badge rounded-pill text-bg-secondary">Inactive</span>
+            <span class="badge rounded-pill text-bg-danger">Inactive</span>
             
           </td>
           <td>
@@ -1274,20 +1307,20 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-college"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-copy"></i>Copy URL</a>
+                  <a class="dropdown-item tw-cursor-pointer" onclick='Toastify({text: "URL Coppied!",className: "info"}).showToast();'><i class="fi fi-sr-copy"></i>Copy URL</a>
                 </li>
                 <li>
                   <span class="dropdown-item">
                     <i class="fi fi-sr-calendar"></i>
                     <div>Attendence</div>
                     <div class="form-check form-switch tw-ml-auto">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
                       <label class="form-check-label" for="switchCheckDefault"></label>
                     </div>
                   </span>
@@ -1328,33 +1361,151 @@
     </nav>
   </div>
 </div>
-<div class="modal fade bw-modal" id="upload-student-upload">
+<div class="modal fade bw-modal" id="add-college">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5">Upload Student List</h1>
+        <h1 class="modal-title fs-5">Add College</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <label class="bw-upload">
-        <input type="file" />
-        <div>
-          <strong>Upload</strong>
-          <p>Click or Drag & Drop your file here.</p>
-        </div>
-      </label>
-      <ul class="list-group tw-mt-[10px]">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          students.xls
-          <button type="button" class="btn btn-sm btn-icon"><i class="fi fi-sr-trash"></i></button>
-        </li>
-       
-      </ul>
+        <form action="">
+          <div class="row g-3">
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">Courses</label>
+                <select class="bw-select-multi" multiple>
+                  <option>One</option>
+                  <option>Two</option>
+                  <option>Three</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Phone Primary</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label">Phone Secondary</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">Head</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">Code</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <label class="form-label">Password</label>
+                <input type="text" class="form-control bw-form-control" />
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary">Upload</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="offcanvas offcanvas-end" id="view-college">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">College Info</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="list-group">
+      
+
+      <div class="list-group-item">
+        <div class="tw-text-[12px] tw-text-gray-400 tw-capitalize">college</div>
+        <div>
+           LORDS Institute of Engineering and Technology - 2024 
+        </div>
+      </div>
+
+      
+
+      <div class="list-group-item">
+        <div class="tw-text-[12px] tw-text-gray-400 tw-capitalize">email</div>
+        <div>
+           saisuman@lords.ac.in 
+        </div>
+      </div>
+
+      
+
+      <div class="list-group-item">
+        <div class="tw-text-[12px] tw-text-gray-400 tw-capitalize">phone</div>
+        <div>
+           8885852485 
+        </div>
+      </div>
+
+      
+
+      <div class="list-group-item">
+        <div class="tw-text-[12px] tw-text-gray-400 tw-capitalize">poc</div>
+        <div>
+           R.Suman 
+        </div>
+      </div>
+
+      
+
+      <div class="list-group-item">
+        <div class="tw-text-[12px] tw-text-gray-400 tw-capitalize">code</div>
+        <div>
+           LORDS 
+        </div>
+      </div>
+
+      
+
+      <div class="list-group-item">
+        <div class="tw-text-[12px] tw-text-gray-400 tw-capitalize">status</div>
+        <div>
+           
+          <span class="badge rounded-pill text-bg-danger">Inactive</span>
+           
+        </div>
+      </div>
+
+      
     </div>
   </div>
 </div>
@@ -1366,6 +1517,7 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/metismenujs"></script>
     <script src="assets/js/scripts.js"></script>
     

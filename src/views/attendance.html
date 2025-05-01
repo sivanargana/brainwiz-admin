@@ -76,6 +76,7 @@
     <table class="table table-hover bw-table tw-m-0">
       <thead>
         <tr>
+          <th>S.No</th>
           <th>Name</th>
           <th>College</th>
           <th>Department</th>
@@ -88,6 +89,7 @@
       <tbody>
         {% for item in g.app.attendance %}
         <tr>
+          <td>{{loop.index}}</td>
           <td>{{item.name}}</td>
           <td>{{item.college}}</td>
           <td>{{item.department}}</td>
@@ -194,4 +196,5 @@
     </div>
   </div>
 </div>
+
 {% endblock %}

@@ -68,7 +68,7 @@
           </div>
         </div>
       </div>
-      <a class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#upload-student-upload"><i class="fi fi-sr-plus"></i></a>
+      <a class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#add-student"><i class="fi fi-sr-plus"></i></a>
  
     </div>
 
@@ -77,6 +77,7 @@
     <table class="table table-hover bw-table tw-m-0">
       <thead>
         <tr>
+          <th>S.No</th>
           <th>Name</th>
           <th>College</th>
           <th>Email</th>
@@ -88,6 +89,7 @@
       <tbody>
         {% for item in g.app.students %}
         <tr>
+          <td>{{loop.index}}</td>
           <td>{{item.name}}</td>
           <td>{{item.college}}</td>
           <td>{{item.email}}</td>
@@ -106,7 +108,7 @@
               <button class="btn btn-sm btn-outline-default bw-btn" type="button" data-bs-toggle="dropdown">Actions <i class="fi fi-sr-angle-small-down"></i></button>
               <ul class="dropdown-menu dropdown-menu-end bw-dropdown">
                 <li>
-                  <a class="dropdown-item" href="#"><i class="fi fi-sr-eye"></i> View</a>
+                  <a class="dropdown-item" data-bs-toggle="offcanvas" href="#view-student"><i class="fi fi-sr-eye"></i> View</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"><i class="fi fi-sr-edit"></i>Edit</a>
@@ -148,7 +150,7 @@
     </nav>
   </div>
 </div>
-<div class="modal fade bw-modal" id="upload-student-upload">
+<div class="modal fade bw-modal" id="add-student">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -183,6 +185,25 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary">Upload</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="offcanvas offcanvas-end" id="view-student">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Student Info</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="list-group">
+      {% for key,value in g.app.students[1].items() %}
+
+      <div class="list-group-item">
+        <div class="tw-text-[12px] tw-text-gray-400 tw-capitalize">{{key}}</div>
+        <div>{{value}} </div>
+      </div>
+
+      {% endfor %}
     </div>
   </div>
 </div>
