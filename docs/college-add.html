@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#3b82f6" />
     <title>Brainwiz</title>
-    <!-- <base href="/" /> -->
-    <base href="/brainwiz-admin/" >
+    <base href="/" />
+    <!-- <base href="/brainwiz-admin/" > -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenujs/dist/metismenujs.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -41,7 +40,6 @@
             @apply !tw-bg-red-400;
           }
         }
-
         .menu-swiper {
           @apply tw-relative tw-mb-[20px] tw-px-[10px] bw-card;
           .swiper {
@@ -80,8 +78,7 @@
           }
         }
         [data-layout="sidebar"] {
-          @apply tw-fixed tw-z-[999] tw-left-0 tw-top-0 tw-bottom-0 tw-bg-gray-50 tw-shadow-[inset_-3px_0_3px] tw-shadow-black/5  tw-w-[300px] md:tw-w-[70px] tw-transition-all tw-duration-300 tw-ease-out tw-overflow-hidden tw-flex tw-flex-col;
-
+          @apply tw-fixed tw-z-[999] tw-left-0 tw-top-0 tw-bottom-0 tw-bg-gray-50 tw-shadow-[1px_0px_10px] tw-shadow-black/20 md:tw-shadow-[inset_-3px_0_3px] md:tw-shadow-black/5  tw-w-[300px] md:tw-w-[70px] tw-transition-all tw-duration-300 tw-ease-out tw-overflow-hidden tw-flex tw-flex-col;
           > div {
             @apply tw-flex-auto tw-flex tw-flex-col tw-min-h-0;
           }
@@ -124,7 +121,7 @@
               @apply tw-list-none tw-p-0 tw-m-0 tw-flex tw-gap-[10px] tw-flex-col;
               > li {
                 > a {
-                  @apply tw-flex tw-gap-[20px] tw-items-center tw-text-gray-800 tw-no-underline tw-h-[40px] tw-cursor-pointer;
+                  @apply tw-flex tw-gap-[20px] tw-items-center tw-text-gray-800 tw-font-semibold tw-no-underline tw-h-[40px] tw-cursor-pointer;
                   > i {
                     @apply tw-flex-none tw-size-[24px] tw-flex tw-items-center tw-justify-center tw-text-[20px] tw-opacity-30;
                   }
@@ -151,7 +148,6 @@
           }
           &.compact {
             @apply -tw-translate-x-[120%] md:-tw-translate-x-0;
-
             &:hover {
               @apply tw-shadow-[1px_0px_10px] tw-shadow-black/20;
             }
@@ -324,16 +320,21 @@
       }
       .floating-label {
         @apply tw-relative;
-      }
-      .floating-label label {
-        @apply tw-text-[14px] tw-px-[2px] tw-transition-all tw-duration-300 tw-ease-out tw-absolute tw-top-1/2 -tw-translate-y-1/2 tw-left-[10px] tw-bg-white;
-      }
-      .floating-label textarea + label {
-        @apply tw-top-[20%];
-      }
-      .floating-label .form-control:focus + label,
-      .floating-label .form-control:not(:placeholder-shown) + label {
-        @apply tw-top-0 tw-text-[12px];
+        label {
+          @apply tw-pointer-events-none	 tw-text-[14px] tw-px-[2px] tw-transition-all tw-duration-300 tw-ease-out tw-absolute tw-top-1/2 -tw-translate-y-1/2 tw-left-[10px] tw-bg-white;
+        }
+        &:has(textarea) {
+          label {
+            @apply tw-top-[20%];
+          }
+        }
+        &:has(input:focus,input:not(:placeholder-shown)) {
+     
+          label {
+            @apply tw-top-0 tw-text-[12px];
+          }
+        }
+      
       }
     </style>
   </head>
