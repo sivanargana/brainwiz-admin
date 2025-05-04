@@ -93,6 +93,9 @@
               @apply tw-ml-auto tw-flex md:tw-hidden;
             }
           }
+          & + [data-layout="sidebar-backdrop"] {
+            @apply tw-fixed tw-left-0 tw-top-0 tw-bg-black/50 tw-w-full tw-h-full tw-z-[99] tw-backdrop-blur-lg tw-block md:tw-hidden tw-transition-all tw-duration-300 tw-ease-out;
+          }
           [data-layout="menu"] {
             @apply tw-flex-auto tw-min-h-0;
             > ul {
@@ -152,9 +155,15 @@
             &:hover {
               @apply tw-shadow-[1px_0px_10px] tw-shadow-black/20;
             }
+            & + [data-layout="sidebar-backdrop"] {
+              @apply tw-invisible tw-opacity-0;
+            }
           }
           &.classic {
             @apply -tw-translate-x-0 md:-tw-translate-x-0;
+            & + [data-layout="sidebar-backdrop"] {
+              @apply tw-visible tw-opacity-100;
+            }
           }
           &.compact:hover,
           &.classic {
@@ -329,13 +338,11 @@
             @apply tw-top-[20%];
           }
         }
-        &:has(input:focus,input:not(:placeholder-shown)) {
-     
+        &:has(input:focus, input:not(:placeholder-shown)) {
           label {
             @apply tw-top-0 tw-text-[12px];
           }
         }
-      
       }
     </style>
   </head>
@@ -478,6 +485,7 @@
     </div>
   </div>
 </div>
+<div data-layout="sidebar-backdrop"></div>
 <div class="tw-flex tw-flex-col">
   <div class="tw-flex tw-items-center tw-h-[62px] tw-px-[15px] tw-bg-white  tw-border-0 tw-border-b tw-border-solid  tw-border-gray-200 tw-sticky tw-top-0 tw-z-[9]">
    <button type="button" class="btn btn-icon"  data-layout="sidebar-toggle"><i class="fi fi-rr-sidebar tw-text-[20px]"></i></button>

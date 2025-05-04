@@ -2,6 +2,7 @@ const app = {
   sidebar: () => {
     let sidebar = document.querySelector('[data-layout="sidebar"]');
     let toggle = document.querySelectorAll('[data-layout="sidebar-toggle"]');
+    let backdrop = document.querySelector('[data-layout="sidebar-backdrop"]');
     if (!sidebar || !toggle) return;
     MetisMenu.attach(document.querySelector('[data-layout="menu"]>ul'));
     let isSidebarExpanded = true;
@@ -13,6 +14,7 @@ const app = {
     toggle.forEach((item) => {
       item.addEventListener("click", sidebarToggle);
     });
+    backdrop.addEventListener("click", sidebarToggle);
     sidebarToggle();
   },
   menu: () => {
