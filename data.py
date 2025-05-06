@@ -498,7 +498,7 @@ data = {
         {
             "label":"Colleges",
             "value":"10K",
-            "icon":"fi fi-sr-member-list"
+            "icon":"fi fi-sr-bank"
         },
           {
             "label":"Student Signups",
